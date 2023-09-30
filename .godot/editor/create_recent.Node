@@ -1,6 +1,10 @@
-CollisionShape2D
-CharacterBody2D
+Node2D
 Sprite2D
+CollisionShape2D
+RigidBody2D
+StaticBody2D
+Area2D
+CharacterBody2D
 ColorRect
 TileMap
 AnimatedSprite2D

@@ -1,3 +1,6 @@
 res://test_level.tscn
-res://follow_mouse.gd
-res://set_cursor.gd
+res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn
+res://Stationary_Turret.gd
+res://Enemies/Scripts/EnemyProjectile.gd
+res://Enemies/Scripts/Stationary_Turret.gd
+res://Enemies/Scripts/EnemyProj.gd

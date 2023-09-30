@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=10 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://follow_mouse.gd" id="1_4ecr6"]
 [ext_resource type="Script" path="res://set_cursor.gd" id="1_rskk4"]
 [ext_resource type="Texture2D" uid="uid://ir1qmh4a07et" path="res://controller.jpg" id="3_1kmdj"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Stationary_Turret.gd" id="4_gd6ko"]
+[ext_resource type="Texture2D" uid="uid://drep6tcik7egy" path="res://Enemies/Sprites/ufoBlue.png" id="5_xv282"]
+[ext_resource type="Texture2D" uid="uid://cuktcoqcybwg8" path="res://Enemies/Sprites/cockpitBlue_5.png" id="6_f2m4b"]
+[ext_resource type="Script" path="res://Enemies/Scripts/TurretAim.gd" id="7_e6kj7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3jag"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rskk4")
@@ -25,4 +31,24 @@ shape = SubResource("CircleShape2D_gjbbm")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-72, -56)
 texture = ExtResource("3_1kmdj")
+
+[node name="Turret_Stationary" type="StaticBody2D" parent="."]
+position = Vector2(384, 448)
+script = ExtResource("4_gd6ko")
+
+[node name="TurretBase" type="Sprite2D" parent="Turret_Stationary"]
+texture = ExtResource("5_xv282")
+
+[node name="TurretAim" type="Sprite2D" parent="Turret_Stationary/TurretBase"]
+texture = ExtResource("6_f2m4b")
+offset = Vector2(20, 0)
+script = ExtResource("7_e6kj7")
+
+[node name="LaserPoint" type="Node2D" parent="Turret_Stationary/TurretBase/TurretAim"]
+position = Vector2(75, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Turret_Stationary"]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CircleShape2D_t3jag")
