@@ -7,10 +7,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t3jag"]
 
-[node name="Turret_Stationary" type="StaticBody2D"]
+[node name="Turret_Stationary" type="StaticBody2D" groups=["Enemy"]]
 position = Vector2(384, 448)
-collision_layer = 4
-collision_mask = 4
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_sw0ac")
 
 [node name="TurretBase" type="Sprite2D" parent="."]

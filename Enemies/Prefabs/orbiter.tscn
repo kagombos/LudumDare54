@@ -5,14 +5,15 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seikd"]
 
-[node name="Orbiter" type="RigidBody2D"]
+[node name="Orbiter" type="RigidBody2D" groups=["Enemy"]]
 position = Vector2(480, 360)
-collision_layer = 5
-collision_mask = 4
+collision_layer = 2
+collision_mask = 3
 gravity_scale = 0.0
+max_contacts_reported = 1
+contact_monitor = true
 linear_damp = 7.5
 script = ExtResource("1_mdcjb")
-canShoot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.2, 5.5)
@@ -23,3 +24,5 @@ texture = ExtResource("2_lhjtc")
 
 [node name="LaserPoint" type="Node2D" parent="."]
 position = Vector2(75, 0)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

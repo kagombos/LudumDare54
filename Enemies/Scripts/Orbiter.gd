@@ -41,3 +41,8 @@ func _physics_process(delta):
 		bullet_instance.rotation = rotation
 		add_sibling(bullet_instance)
 		
+
+
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		body.HP -= 3.5
