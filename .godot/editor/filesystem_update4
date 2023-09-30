@@ -1,3 +1,2 @@
 res://test_level.tscn
-res://follow_mouse.gd
-res://set_cursor.gd
+res://trail_control.gd
