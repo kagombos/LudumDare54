@@ -31,3 +31,5 @@ texture = ExtResource("3_1kmdj")
 
 [node name="TrailControl" type="Node2D" parent="."]
 script = ExtResource("4_xulbm")
+lineColor = Color(1, 0, 1, 1)
+lineWidth = 15
