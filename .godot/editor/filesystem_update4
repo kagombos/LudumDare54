@@ -1,4 +1,0 @@
-res://test_level.tscn
-res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn
-res://Enemies/Scripts/Stationary_Turret.gd
-res://Enemies/Scripts/EnemyProj.gd
