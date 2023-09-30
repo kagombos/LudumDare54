@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbtjlt5bk1rwp"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/Stationary_Turret.gd" id="1_sw0ac"]
+[ext_resource type="Texture2D" uid="uid://drep6tcik7egy" path="res://Enemies/Sprites/ufoBlue.png" id="2_ihfb5"]
+[ext_resource type="Texture2D" uid="uid://cuktcoqcybwg8" path="res://Enemies/Sprites/cockpitBlue_5.png" id="3_yvkdr"]
+[ext_resource type="Script" path="res://Enemies/Scripts/TurretAim.gd" id="4_vk0vu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3jag"]
+
+[node name="Turret_Stationary" type="StaticBody2D"]
+position = Vector2(384, 448)
+script = ExtResource("1_sw0ac")
+
+[node name="TurretBase" type="Sprite2D" parent="."]
+texture = ExtResource("2_ihfb5")
+
+[node name="TurretAim" type="Sprite2D" parent="TurretBase"]
+texture = ExtResource("3_yvkdr")
+offset = Vector2(20, 0)
+script = ExtResource("4_vk0vu")
+
+[node name="LaserPoint" type="Node2D" parent="TurretBase/TurretAim"]
+position = Vector2(75, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4.5, 4.5)
+shape = SubResource("CircleShape2D_t3jag")

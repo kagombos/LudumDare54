@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bca7bs4w6s86s"]
+
+[ext_resource type="Script" path="res://Enemies/Scripts/EnemyProj.gd" id="1_7i87q"]
+[ext_resource type="Texture2D" uid="uid://4feenaxq7sqh" path="res://Enemies/Sprites/Projectiles/laserRed03.png" id="1_gwnw2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efdld"]
+
+[node name="Turret_Laser1" type="RigidBody2D"]
+position = Vector2(472, 448)
+collision_layer = 2
+collision_mask = 4
+gravity_scale = 0.0
+script = ExtResource("1_7i87q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.8, 0.45)
+shape = SubResource("RectangleShape2D_efdld")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gwnw2")
