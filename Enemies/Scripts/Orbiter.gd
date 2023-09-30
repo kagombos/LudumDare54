@@ -10,6 +10,8 @@ extends RigidBody2D
 
 @export var accelRate = 200000
 
+@export var canShoot = false
+
 var turretCD = -1
 
 var spawning = true
@@ -32,7 +34,7 @@ func _physics_process(delta):
 			apply_force(-transform.x*accelRate*delta)
 		else:
 			apply_force(transform.y*accelRate*orbitDirection*0.4*delta)
-	if turretCD >= fireRate:
+	if turretCD >= fireRate and canShoot:
 		turretCD -= fireRate
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.position = $LaserPoint.get_global_position()

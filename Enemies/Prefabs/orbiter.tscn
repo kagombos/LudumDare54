@@ -10,6 +10,7 @@ position = Vector2(480, 360)
 gravity_scale = 0.0
 linear_damp = 7.5
 script = ExtResource("1_mdcjb")
+canShoot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.2, 5.5)

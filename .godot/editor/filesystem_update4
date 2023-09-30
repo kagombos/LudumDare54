@@ -4,3 +4,4 @@ res://Enemies/Scripts/Enemy Spawner.gd
 res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn
 res://Enemies/Scripts/Orbiter.gd
 res://Enemies/Scripts/EnemyProj.gd
+res://Enemies/Prefabs/orbiter.tscn
