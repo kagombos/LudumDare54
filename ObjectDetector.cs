@@ -1,17 +1,11 @@
-using CommunityToolkit.HighPerformance;
 using Godot;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 using Microsoft.ML.Transforms.Onnx;
-using Microsoft.ML.Transforms.Text;
 using NumSharp;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 public class Input
 {
