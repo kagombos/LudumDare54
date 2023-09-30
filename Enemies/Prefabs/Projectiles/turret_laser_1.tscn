@@ -7,6 +7,7 @@
 
 [node name="Turret_Laser1" type="RigidBody2D"]
 position = Vector2(472, 448)
+collision_layer = 2
 gravity_scale = 0.0
 script = ExtResource("1_7i87q")
 

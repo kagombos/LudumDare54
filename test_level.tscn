@@ -1,14 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=7 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://follow_mouse.gd" id="1_4ecr6"]
 [ext_resource type="Script" path="res://set_cursor.gd" id="1_rskk4"]
 [ext_resource type="Texture2D" uid="uid://ir1qmh4a07et" path="res://controller.jpg" id="3_1kmdj"]
-[ext_resource type="Script" path="res://Enemies/Scripts/Orbiter.gd" id="5_eeqba"]
-[ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="6_dkgh0"]
+[ext_resource type="Script" path="res://Enemies/Scripts/Enemy Spawner.gd" id="4_uisph"]
+[ext_resource type="PackedScene" uid="uid://cjivdjvi5qk2i" path="res://Enemies/Prefabs/orbiter.tscn" id="5_opmw6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_seikd"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rskk4")
@@ -33,19 +31,5 @@ position = Vector2(-72, -56)
 texture = ExtResource("3_1kmdj")
 
 [node name="Enemy Spawner" type="Node2D" parent="."]
-
-[node name="Orbiter" type="RigidBody2D" parent="."]
-position = Vector2(480, 360)
-gravity_scale = 0.0
-linear_damp = 7.5
-script = ExtResource("5_eeqba")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbiter"]
-scale = Vector2(4.2, 5.5)
-shape = SubResource("CircleShape2D_seikd")
-
-[node name="Sprite2D" type="Sprite2D" parent="Orbiter"]
-texture = ExtResource("6_dkgh0")
-
-[node name="LaserPoint" type="Node2D" parent="Orbiter"]
-position = Vector2(75, 0)
+script = ExtResource("4_uisph")
+enemy_prefab = ExtResource("5_opmw6")
