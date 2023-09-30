@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=9 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://follow_mouse.gd" id="1_4ecr6"]
 [ext_resource type="Script" path="res://set_cursor.gd" id="1_rskk4"]
 [ext_resource type="Texture2D" uid="uid://ir1qmh4a07et" path="res://controller.jpg" id="3_1kmdj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Enemy Spawner.gd" id="4_uisph"]
-[ext_resource type="PackedScene" uid="uid://cjivdjvi5qk2i" path="res://Enemies/Prefabs/orbiter.tscn" id="5_opmw6"]
 [ext_resource type="Script" path="res://trail_control.gd" id="4_xulbm"]
+[ext_resource type="PackedScene" uid="uid://cjivdjvi5qk2i" path="res://Enemies/Prefabs/orbiter.tscn" id="5_opmw6"]
+[ext_resource type="Script" path="res://ObjectDetector.cs" id="7_qgu0e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
 
@@ -40,6 +41,9 @@ enemy_prefab = ExtResource("5_opmw6")
 script = ExtResource("4_xulbm")
 lineColor = Color(1, 0, 1, 1)
 lineWidth = 15
+
+[node name="ObjectDetector" type="Node2D" parent="TrailControlLeft"]
+script = ExtResource("7_qgu0e")
 
 [node name="TrailControlRight" type="Node2D" parent="."]
 script = ExtResource("4_xulbm")

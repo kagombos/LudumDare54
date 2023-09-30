@@ -50,4 +50,8 @@ func _draw():
 		draw_polyline(line.points, lineColor, lineWidth)
 	for fadingLine in fadingLines:
 		if fadingLine.line.points.size() > 2:
-			draw_polyline(fadingLine.line.points, Color(lineColor.r, lineColor.g, lineColor.b, fadingLine.opacity), lineWidth)
+			draw_polyline(
+				fadingLine.line.points, 
+				Color(lineColor.r, lineColor.g, lineColor.b, fadingLine.opacity), 
+				lineWidth
+			)
