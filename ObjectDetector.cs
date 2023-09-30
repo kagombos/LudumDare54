@@ -24,6 +24,12 @@ public class Output
 
 public partial class ObjectDetector : Node
 {
+
+	public void _on_trail_control_left_line_drawn (Vector2[] line) {
+		GD.Print("test");
+		GD.Print(line);
+	}
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

@@ -1,11 +1,5 @@
 extends Node2D
 
-@export var lineColor = Color(1,1,1,1)
-@export var lineWidth = 20
-@export var mouseButton = 1
-var drawing = false
-var line
-
 class FadingLine:
 	var opacity = 1
 	var line: Line2D
@@ -13,7 +7,15 @@ class FadingLine:
 	func _init(line):
 		self.line = line
 
+@export var lineColor = Color(1,1,1,1)
+@export var lineWidth = 20
+@export var mouseButton = 1
+
+var drawing = false
+var line
 var fadingLines = []
+
+signal LineDrawn
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +37,7 @@ func _input(event):
 			line.add_point(event.position)
 		else:
 			# end drawing, create path
+			LineDrawn.emit(line.points)
 			fadingLines.append(FadingLine.new(line.duplicate()))
 			line.clear_points()
 			self.queue_redraw()

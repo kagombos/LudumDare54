@@ -50,3 +50,5 @@ script = ExtResource("4_xulbm")
 lineColor = Color(0, 0.72549, 0.603922, 1)
 lineWidth = 15
 mouseButton = 2
+
+[connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
