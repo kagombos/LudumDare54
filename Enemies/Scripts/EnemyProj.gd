@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-@export var proj_speed = 1000
+@export var proj_speed = 20000
 
-func _physics_process(delta):
-	position += transform.x * proj_speed * delta
+func _ready():
+	apply_force(proj_speed * transform.x)
