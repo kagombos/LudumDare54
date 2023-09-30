@@ -5,6 +5,7 @@
     <RootNamespace>LudumDare54</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.HighPerformance" Version="8.2.1" />
     <PackageReference Include="Microsoft.ML" Version="2.0.1" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.16.0" />
     <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="2.0.1" />

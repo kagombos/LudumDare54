@@ -45,6 +45,16 @@ lineWidth = 15
 [node name="ObjectDetector" type="Node2D" parent="TrailControlLeft"]
 script = ExtResource("7_qgu0e")
 
+[node name="DebugDisplay" type="Node2D" parent="TrailControlLeft/ObjectDetector"]
+position = Vector2(1833, 106)
+
+[node name="DebugText" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector"]
+offset_left = 1718.0
+offset_top = 159.0
+offset_right = 1897.0
+offset_bottom = 186.0
+text = "Detected Letter: None"
+
 [node name="TrailControlRight" type="Node2D" parent="."]
 script = ExtResource("4_xulbm")
 lineColor = Color(0, 0.72549, 0.603922, 1)
