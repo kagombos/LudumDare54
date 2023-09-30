@@ -20,12 +20,11 @@ func _ready():
 	pass # Replace with function body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta):	
 	if fadingLines.size():
 		for fadingLine in fadingLines:
 			fadingLine.opacity = fadingLine.opacity - 0.05
-			#if fadingLine.opacity <= 0:
-		#fadingLines.filter((line) => line.opacity <= 0)
+		fadingLines = fadingLines.filter(func(line): return line.opacity > 0)
 		self.queue_redraw()
 
 func _input(event):
@@ -50,4 +49,5 @@ func _draw():
 	if line and line.points.size() > 2:
 		draw_polyline(line.points, lineColor, lineWidth)
 	for fadingLine in fadingLines:
-		draw_polyline(fadingLine.line.points, Color(lineColor.r, lineColor.g, lineColor.b, fadingLine.opacity), lineWidth)
+		if fadingLine.line.points.size() > 2:
+			draw_polyline(fadingLine.line.points, Color(lineColor.r, lineColor.g, lineColor.b, fadingLine.opacity), lineWidth)

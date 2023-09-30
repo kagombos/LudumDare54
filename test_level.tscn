@@ -29,7 +29,13 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 texture = ExtResource("3_1kmdj")
 
-[node name="TrailControl" type="Node2D" parent="."]
+[node name="TrailControlLeft" type="Node2D" parent="."]
 script = ExtResource("4_xulbm")
 lineColor = Color(1, 0, 1, 1)
 lineWidth = 15
+
+[node name="TrailControlRight" type="Node2D" parent="."]
+script = ExtResource("4_xulbm")
+lineColor = Color(0, 0.72549, 0.603922, 1)
+lineWidth = 15
+mouseButton = 2
