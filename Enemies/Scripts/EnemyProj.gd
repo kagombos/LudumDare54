@@ -10,3 +10,9 @@ func _ready():
 	timer.connect("timeout", Callable(self, "queue_free"))
 	timer.set_wait_time(5)
 	timer.start()
+
+func _on_body_entered(body):
+	if body.is_in_group("Player"):
+		body.HP -= 5
+		print(body.HP/body.maxHP)
+		queue_free()
