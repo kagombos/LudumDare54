@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ir1qmh4a07et" path="res://controller.jpg" id="3_1kmdj"]
 [ext_resource type="Script" path="res://Enemies/Scripts/Enemy Spawner.gd" id="4_uisph"]
 [ext_resource type="PackedScene" uid="uid://cjivdjvi5qk2i" path="res://Enemies/Prefabs/orbiter.tscn" id="5_opmw6"]
+[ext_resource type="Script" path="res://trail_control.gd" id="4_xulbm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
 
@@ -20,6 +21,7 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(232, 256)
 script = ExtResource("1_4ecr6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
@@ -33,3 +35,14 @@ texture = ExtResource("3_1kmdj")
 [node name="Enemy Spawner" type="Node2D" parent="."]
 script = ExtResource("4_uisph")
 enemy_prefab = ExtResource("5_opmw6")
+
+[node name="TrailControlLeft" type="Node2D" parent="."]
+script = ExtResource("4_xulbm")
+lineColor = Color(1, 0, 1, 1)
+lineWidth = 15
+
+[node name="TrailControlRight" type="Node2D" parent="."]
+script = ExtResource("4_xulbm")
+lineColor = Color(0, 0.72549, 0.603922, 1)
+lineWidth = 15
+mouseButton = 2
