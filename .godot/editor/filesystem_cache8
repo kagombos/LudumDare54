@@ -1,21 +1,25 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1696036370
+::res://::1696086902
 controller.jpg::CompressedTexture2D::598213027850161347::1696029229::1696029229::1::::<><>::
 follow_mouse.gd::GDScript::-1::1696030024::0::1::::<>CharacterBody2D<>::
 icon.svg::CompressedTexture2D::8021740939081782354::1696029229::1696029229::1::::<><>::
 LICENSE.md::TextFile::-1::1696029229::0::1::::<><>::
 README.md::TextFile::-1::1696029229::0::1::::<><>::
 set_cursor.gd::GDScript::-1::1696029229::0::1::::<>Node<>::
-test_level.tscn::PackedScene::1530738718650114709::1696036364::0::1::::<><>::res://follow_mouse.gd<>res://set_cursor.gd<>uid://ir1qmh4a07et::::res://controller.jpg<>res://Stationary_Turret.gd<>uid://drep6tcik7egy::::res://Enemies/Sprites/ufoBlue.png<>uid://cuktcoqcybwg8::::res://Enemies/Sprites/cockpitBlue_5.png<>res://Enemies/Scripts/TurretAim.gd
-::res://Enemies/::1696036370
-Stationary_Turret.gd::GDScript::-1::1696036364::0::1::::<>StaticBody2D<>::
-::res://Enemies/Prefabs/::1696031844
-::res://Enemies/Prefabs/Projectiles/::1696034056
-turret_laser_1.tscn::PackedScene::2528744091792980660::1696034056::0::1::::<><>::uid://4feenaxq7sqh::::res://Enemies/Sprites/Projectiles/laserRed03.png
-::res://Enemies/Scripts/::1696036364
+test_level.tscn::PackedScene::1530738718650114709::1696051439::0::1::::<><>::res://follow_mouse.gd<>res://set_cursor.gd<>uid://ir1qmh4a07et::::res://controller.jpg<>res://Enemies/Scripts/Enemy Spawner.gd
+::res://Enemies/::1696036381
+::res://Enemies/Prefabs/::1696046521
+turret_stationary.tscn::PackedScene::2496399845673747535::1696046521::0::1::::<><>::res://Enemies/Scripts/Stationary_Turret.gd<>uid://drep6tcik7egy::::res://Enemies/Sprites/ufoBlue.png<>uid://cuktcoqcybwg8::::res://Enemies/Sprites/cockpitBlue_5.png<>res://Enemies/Scripts/TurretAim.gd
+::res://Enemies/Prefabs/Projectiles/::1696051439
+turret_laser_1.tscn::PackedScene::2528744091792980660::1696051439::0::1::::<><>::res://Enemies/Scripts/EnemyProj.gd<>uid://4feenaxq7sqh::::res://Enemies/Sprites/Projectiles/laserRed03.png
+::res://Enemies/Scripts/::1696051438
+Enemy Spawner.gd::GDScript::-1::1696051438::0::1::::<>Node2D<>::
+EnemyProj.gd::GDScript::-1::1696048819::0::1::::<>RigidBody2D<>::
+Stationary_Turret.gd::GDScript::-1::1696050931::0::1::::<>StaticBody2D<>::
 TurretAim.gd::GDScript::-1::1696031350::0::1::::<>Sprite2D<>::
-::res://Enemies/Sprites/::1696031824
+::res://Enemies/Sprites/::1696087274
 cockpitBlue_5.png::CompressedTexture2D::6198419972304600717::1696031592::1696031807::1::::<><>::
+enemyBlue2.png::CompressedTexture2D::701678575995615292::1696087274::1696087279::1::::<><>::
 ufoBlue.png::CompressedTexture2D::8361697019856012436::1696030684::1696031811::1::::<><>::
 ::res://Enemies/Sprites/Projectiles/::1696031827
 laserRed03.png::CompressedTexture2D::2046049049291150543::1696031751::1696031827::1::::<><>::

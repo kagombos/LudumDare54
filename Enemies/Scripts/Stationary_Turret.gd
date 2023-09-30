@@ -4,16 +4,11 @@ extends	StaticBody2D
 
 @export var fireRate = 1
 
-var turretCD = 0
+var turretCD = -1
 
 var spawning = true
 
 var despawning = false
-
-func _ready():
-	turretCD -= 1
-	if has_node("Timer"):
-		get_node("Timer").connect("timeout", Callable(self, "startDespawning"))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -29,11 +24,4 @@ func _process(delta):
 		bullet_instance.position = $TurretBase/TurretAim/LaserPoint.get_global_position()
 		bullet_instance.rotation = $TurretBase/TurretAim.rotation
 		add_sibling(bullet_instance)
-	if despawning:
-		scale = Vector2(1-turretCD,1.-turretCD)
-		if(turretCD >= 1):
-			queue_free()
 
-func startDespawning():
-	despawning = true
-	turretCD = 0
