@@ -5,7 +5,7 @@ extends Node2D
 @export var enemyLifetime = 20
 
 @export var minSpawnDist = 100
-@export var maxSpawnDist = 300
+@export var maxSpawnDist = 200
 
 var spawnCD = 0
 var screenSize
@@ -23,7 +23,7 @@ func _process(delta):
 		var enemy_instance = enemy_prefab.instantiate()
 		var enemyX = randf_range(minSpawnDist, maxSpawnDist)
 		var enemyY = randf_range(minSpawnDist, maxSpawnDist) 
-		enemy_instance.position = get_global_mouse_position()+Vector2(enemyX*(-1 *randi_range(0, 1)), enemyY*(-1 *randi_range(0, 1)))
+		enemy_instance.position = get_global_mouse_position()+Vector2(enemyX*(-1 +2*randi_range(0, 1)), enemyY*(-1 +2*randi_range(0, 1)))
 		var timer = Timer.new()
 		enemy_instance.add_child(timer)
 		add_child(enemy_instance)
