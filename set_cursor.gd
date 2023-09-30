@@ -1,6 +1,6 @@
 extends Node
 
-var cursor = load('res://controller.jpg')
+var cursor = load('res://Player/Sprites/Game_Cursor.png')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

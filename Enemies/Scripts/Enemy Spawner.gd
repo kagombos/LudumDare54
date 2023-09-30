@@ -1,8 +1,8 @@
 extends Node2D
 
-@export var spawnRate = 4
+@export var spawnRate = 8
 @export var enemy_prefab = preload("res://Enemies/Prefabs/turret_stationary.tscn")
-@export var enemyLifetime = 20
+@export var enemyDelay = 1
 
 @export var minSpawnDist = 100
 @export var maxSpawnDist = 200
@@ -13,7 +13,7 @@ var screenSize
 func _ready():
 	screenSize = get_viewport_rect().size
 	#test code
-	spawnCD = spawnRate-1
+	spawnCD = spawnRate-enemyDelay
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
