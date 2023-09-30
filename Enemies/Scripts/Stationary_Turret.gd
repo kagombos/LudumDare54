@@ -8,7 +8,6 @@ var turretCD = -1
 
 var spawning = true
 
-var despawning = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,7 +17,7 @@ func _process(delta):
 		if turretCD >= 0.2:
 			spawning = false
 			scale = Vector2(1,1)
-	if turretCD >= fireRate and not despawning:
+	if turretCD >= fireRate:
 		turretCD -= fireRate
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.position = $TurretBase/TurretAim/LaserPoint.get_global_position()

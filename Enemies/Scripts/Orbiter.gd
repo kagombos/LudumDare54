@@ -6,9 +6,9 @@ extends RigidBody2D
 
 @export var orbitDirection = 1
 
-@export var orbitRadius = 50
+@export var orbitRadius = 200
 
-@export var accelRate = 1000
+@export var accelRate = 200000
 
 var turretCD = -1
 
@@ -17,7 +17,7 @@ var spawning = true
 var despawning = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	turretCD += delta
 	look_at(get_global_mouse_position())
 	if spawning:
@@ -26,9 +26,16 @@ func _process(delta):
 			spawning = false
 			scale = Vector2(1,1)
 	else:
-		if position.distance_to(get_global_mouse_position()) > orbitRadius * 1.25:
-			apply_force(transform.x*accelRate)
-		elif position.distance_to(get_global_mouse_position()) < orbitRadius * 0.75:
-			apply_force(-transform.x*accelRate)
+		if position.distance_to(get_global_mouse_position()) > orbitRadius * 1.5:
+			apply_force(transform.x*accelRate*delta)
+		elif position.distance_to(get_global_mouse_position()) < orbitRadius:
+			apply_force(-transform.x*accelRate*delta)
 		else:
-			apply_force(transform.y*accelRate*orbitDirection)
+			apply_force(transform.y*accelRate*orbitDirection*0.4*delta)
+	if turretCD >= fireRate:
+		turretCD -= fireRate
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.position = $LaserPoint.get_global_position()
+		bullet_instance.rotation = rotation
+		add_sibling(bullet_instance)
+		
