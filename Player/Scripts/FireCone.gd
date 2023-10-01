@@ -30,6 +30,5 @@ func _physics_process(delta):
 	
 	var bodies = get_overlapping_bodies()
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
-	print(scale)
 	if bodies && scale.x > 0.01:
 		bodies[0].queue_free()

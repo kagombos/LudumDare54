@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://v2rbp1er7bs4"]
+
+[ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
+[ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
+[ext_resource type="PackedScene" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_hycri"]
+[ext_resource type="Script" path="res://TrailControl.gd" id="4_uhvwm"]
+[ext_resource type="Script" path="res://ObjectDetector.cs" id="5_evcg2"]
+[ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
+[ext_resource type="Script" path="res://WeaponsQueue/Scripts/WeaponsQueue.gd" id="7_urgwb"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_8emuj")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_cyqrb")]
+
+[node name="Enemy Spawner" parent="." instance=ExtResource("3_hycri")]
+
+[node name="TrailControlLeft" type="Node2D" parent="."]
+z_index = -2
+script = ExtResource("4_uhvwm")
+lineColor = Color(1, 0, 1, 1)
+lineWidth = 15
+
+[node name="ObjectDetector" type="Node2D" parent="TrailControlLeft"]
+script = ExtResource("5_evcg2")
+
+[node name="DebugDisplay" type="Node2D" parent="TrailControlLeft/ObjectDetector"]
+position = Vector2(1833, 106)
+
+[node name="DebugText" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector"]
+offset_left = 1718.0
+offset_top = 159.0
+offset_right = 1897.0
+offset_bottom = 186.0
+text = "Detected Letter: None"
+
+[node name="TrailControlRight" type="Node2D" parent="."]
+z_index = -2
+script = ExtResource("4_uhvwm")
+lineColor = Color(0, 0.72549, 0.603922, 1)
+lineWidth = 15
+mouseButton = 2
+
+[node name="Enemy Spawner2" parent="." instance=ExtResource("3_hycri")]
+enemy_prefab = ExtResource("6_yl35p")
+
+[node name="WeaponsQueue" type="Node2D" parent="."]
+script = ExtResource("7_urgwb")
+
+[connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="WeaponsQueue" method="_on_object_detector_object_detected"]
