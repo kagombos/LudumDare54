@@ -70,7 +70,7 @@ func _physics_process(delta):
 
 	if HP <= 0:
 		#replace this with game over code
-		queue_free()
+		get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
