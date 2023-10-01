@@ -6,6 +6,7 @@ var DigitToElementMap = {
 	0: Element.WATER, #A
 	12: Element.LIGHT, #M
 	2: Element.DARK, #C
+	25: Element.AIR, #Z
 }
 
 var ElementToString = {
@@ -25,6 +26,7 @@ var ElementDurations = {
 	Element.WATER: 3,
 	Element.LIGHT: 3,
 	Element.DARK: 3,
+	Element.AIR: 4,
 	Element.JUNK: 1
 }
 

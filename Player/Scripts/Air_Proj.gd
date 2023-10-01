@@ -5,6 +5,7 @@ extends Area2D
 
 @export var steerSpeed = 200
 
+@export var damage = 1
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 var target = null
