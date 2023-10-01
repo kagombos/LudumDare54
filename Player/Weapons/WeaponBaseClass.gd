@@ -9,6 +9,7 @@ var winding_down = false
 @export_range(0, 100, 0.1) var fireRate: float = 0
 
 func _process(delta):
+	process(delta)
 	if not physics_weapon:
 		weapons_process(delta)
 
@@ -30,6 +31,9 @@ func weapons_process(delta):
 		wind_down_weapon(delta)
 	
 	lastTickActive = active
+
+func process(delta):
+	pass
 
 func start_weapon():
 	pass

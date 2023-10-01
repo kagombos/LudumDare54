@@ -30,6 +30,7 @@ func _ready():
 		Element.WATER: $Weapon_Water,
 		Element.DARK: $Weapon_Dark,
 		Element.LIGHT: $Weapon_Light,
+		Element.EARTH: $Weapon_Earth,
 	}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -47,26 +48,19 @@ func _physics_process(delta):
 	last_position = position
 	$Base_Ship/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
 	
+	# set all to false
 	ElementToScene.values().map(func (weapon): weapon.active = false)
 	
-	if Input.is_action_pressed("Earth_Debug"):
-		earthActive = true
-	else:
-		earthActive = false
-	if Input.is_action_pressed("Light_Debug"):
-		lightActive = true
-	else:
-		lightActive = false
-	if Input.is_action_just_pressed("Dark_Debug"):
-		darkHP = HP
+	if Input.is_action_pressed("Fire_Debug"):
+		$Weapon_Fire.active = true
+	if Input.is_action_pressed("Water_Debug"):
+		$Weapon_Water.active = true
 	if Input.is_action_pressed("Dark_Debug"):
 		$Weapon_Dark.active = true
-	else:
-		$Weapon_Dark.active = false
 	if Input.is_action_pressed("Earth_Debug"):
 		$Weapon_Earth.active = true
-	else:
-		$Weapon_Earth.active = false
+	if Input.is_action_pressed("Light_Debug"):
+		$Weapon_Light.active = true
 
 	if ElementToScene.has(activeElement):
 		ElementToScene[activeElement].active = true

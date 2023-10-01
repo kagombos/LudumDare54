@@ -8,6 +8,6 @@ func run_weapon(delta):
 	if lightCD > fireRate:
 		lightCD -= fireRate
 		var light_proj = light_proj_prefab.instantiate()
-		light_proj.position = position
-		light_proj.rotation = rotation
-		add_sibling(light_proj)
+		light_proj.position = owner.position
+		light_proj.rotation = owner.rotation
+		owner.add_sibling(light_proj)

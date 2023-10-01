@@ -5,9 +5,11 @@ var earthCD = 0
 
 func start_weapon():
 	earthCD = fireRate
+	
+func process(delta):
+	rotation_degrees = -owner.rotation_degrees
 
 func run_weapon(delta):
-	rotation_degrees = -owner.rotation_degrees
 	earthCD += delta
 	if earthCD > fireRate:
 		earthCD -= fireRate
