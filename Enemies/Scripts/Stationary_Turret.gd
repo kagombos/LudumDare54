@@ -1,4 +1,4 @@
-extends	StaticBody2D
+extends	Area2D
 
 @export var bullet = preload("res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn")
 

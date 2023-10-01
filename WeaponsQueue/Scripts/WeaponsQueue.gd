@@ -4,6 +4,9 @@ enum Element {
 	FIRE,
 	WATER,
 	LIGHT,
+	DARK,
+	AIR,
+	EARTH,
 	JUNK
 }
 
@@ -21,7 +24,7 @@ var ElementDurations = {
 var activeElement = -1
 var activeDuration = 0
 var weaponsQueue = []
-var maxQueueSize = 5
+@export var maxQueueSize = 5
 
 var timer = 0
 
