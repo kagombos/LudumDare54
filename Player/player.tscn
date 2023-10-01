@@ -110,14 +110,14 @@ polygon = PackedVector2Array(-122, -93, -149, 2, -120, 94, 143, 18, 143, -18)
 position = Vector2(10, 0)
 script = ExtResource("9_m6n74")
 
-[node name="DarkCollison" type="Area2D" parent="."]
+[node name="DarkCollision" type="Area2D" parent="."]
 script = ExtResource("10_2h6tn")
 
-[node name="DarkShield" type="AnimatedSprite2D" parent="DarkCollison"]
+[node name="DarkShield" type="AnimatedSprite2D" parent="DarkCollision"]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_jipdo")
 frame_progress = 0.513136
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkCollison"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DarkCollision"]
 scale = Vector2(7, 7)
 shape = SubResource("CircleShape2D_mw38q")
