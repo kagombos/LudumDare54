@@ -15,11 +15,42 @@ extends RigidBody2D
 @export var maxHP = 10.0
 @export var HP = 10.0
 
+@export var resistChance = 0
+
+@export var ResistanceTypes = {
+	Element.FIRE: 1.0,
+	Element.EARTH: 1.0,
+	Element.LIGHT: 1.0,
+	Element.DARK: 1.0,
+	Element.AIR: 1.0,
+	Element.JUNK: 1.0
+}
+
 var turretCD = -1
 
 var spawning = true
 
 var despawning = false
+
+func _ready():
+	var resistSelection = randf_range(0, 1000)
+	if resistSelection <= resistChance:
+		ResistanceTypes[Element.FIRE] = 0.1
+		ResistanceTypes[Element.EARTH] = 0.1
+		ResistanceTypes[Element.LIGHT] = 0.1
+		ResistanceTypes[Element.DARK] = 0.1
+		ResistanceTypes[Element.AIR] = 0.1
+		ResistanceTypes[Element.JUNK] = 0
+		var weaknessChance = randi_range(1, 3)
+		if weaknessChance == 1:
+			ResistanceTypes[Element.FIRE] = 1
+			$Orbiter_Ship.texture = preload("res://Enemies/Sprites/enemyRed2.png")
+		elif weaknessChance == 2:
+			ResistanceTypes[Element.EARTH] = 1
+			$Orbiter_Ship.texture = preload("res://Enemies/Sprites/enemyGreen2.png")
+		elif weaknessChance == 3:
+			ResistanceTypes[Element.DARK] = 1
+			$Orbiter_Ship.texture = preload("res://Enemies/Sprites/enemyBlack2.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

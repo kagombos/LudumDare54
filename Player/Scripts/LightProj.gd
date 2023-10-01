@@ -35,5 +35,10 @@ func _physics_process(delta):
 	var bodies = get_overlapping_bodies()
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && scale.x > 0.01:
-		bodies[0].HP -= 2
+		bodies[0].HP -= 2*bodies[0].ResistanceTypes[Element.LIGHT]
+		queue_free()
+	var areas = get_overlapping_areas()
+	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
+	if areas && scale.x > 0.01:
+		areas[0].HP -= 2*areas[0].ResistanceTypes[Element.LIGHT]
 		queue_free()

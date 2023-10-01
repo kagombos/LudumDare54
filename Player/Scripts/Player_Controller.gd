@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 var ElementToScene
+@export var earth_proj_prefab = preload("res://Player/Prefabs/earth_proj.tscn")
 
 var activeElement = Element.NONE
 
+var earthActive = false
 var lightActive = false
 var darkActive = false
 var darkHP = 500.0
@@ -14,7 +16,11 @@ var rotation_locked
 @export var maxHP = 500.0
 @export var HP = 500.0
 
+@export var lightFireRate = 0.5
+@export var earthFireRate = 2
+
 var lightCD = 0
+var earthCD = 0
 
 func _ready():
 	HP = maxHP
@@ -44,6 +50,10 @@ func _physics_process(delta):
 	
 	ElementToScene.values().map(func (weapon): weapon.active = false)
 	
+	if Input.is_action_pressed("Earth_Debug"):
+		earthActive = true
+	else:
+		earthActive = false
 	if Input.is_action_pressed("Light_Debug"):
 		lightActive = true
 	else:
@@ -63,6 +73,15 @@ func _physics_process(delta):
 	if ElementToScene.has(activeElement):
 		ElementToScene[activeElement].active = true
 	
+	if earthActive:
+		earthCD += delta
+		if earthCD > earthFireRate:
+			earthCD -= earthFireRate
+			for i in range(5):
+				var earth_proj = earth_proj_prefab.instantiate()
+				earth_proj.rotation_degrees = rotation_degrees + 72*i
+				earth_proj.position = earth_proj.transform.x * 20
+				add_child(earth_proj)
 	if HP <= 0:
 		#replace this with game over code
 		queue_free()
