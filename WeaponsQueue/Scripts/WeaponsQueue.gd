@@ -1,15 +1,5 @@
 extends Node2D
 
-enum Element {
-	FIRE,
-	WATER,
-	LIGHT,
-	DARK,
-	AIR,
-	EARTH,
-	JUNK
-}
-
 var DigitToElementMap = {
 	11: Element.FIRE #L
 }
