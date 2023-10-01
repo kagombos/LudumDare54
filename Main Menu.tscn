@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqhe4j35hq72c"]
+
+[ext_resource type="Script" path="res://UI/Scripts/MainMenu.gd" id="1_uhxdy"]
+[ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_06q5w"]
+[ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="3_5s01i"]
+[ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="4_xeaw3"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uhxdy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartGame" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 200.0
+offset_right = 430.0
+offset_bottom = 247.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "Start Game"
+icon = ExtResource("2_06q5w")
+icon_alignment = 1
+
+[node name="HowToPlay" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 400.0
+offset_right = 430.0
+offset_bottom = 447.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "How to Play"
+icon = ExtResource("2_06q5w")
+icon_alignment = 1
+
+[node name="Practice" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 600.0
+offset_right = 430.0
+offset_bottom = 647.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "Practice Drawing"
+icon = ExtResource("2_06q5w")
+icon_alignment = 1
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 200.0
+offset_top = 800.0
+offset_right = 430.0
+offset_bottom = 847.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "Exit"
+icon = ExtResource("2_06q5w")
+icon_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1109, 731)
+rotation = -1.04196
+scale = Vector2(3, 3)
+texture = ExtResource("3_5s01i")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(1109, 211)
+rotation = -4.88518
+scale = Vector2(3, 3)
+texture = ExtResource("4_xeaw3")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1638, 492)
+rotation = 2.63719
+scale = Vector2(3, 3)
+texture = ExtResource("4_xeaw3")
+
+[connection signal="button_up" from="StartGame" to="." method="start_game"]
+[connection signal="button_up" from="HowToPlay" to="." method="how_play"]
+[connection signal="button_up" from="Practice" to="." method="practice"]
+[connection signal="button_up" from="Exit" to="." method="quit"]
