@@ -4,6 +4,17 @@ var DigitToElementMap = {
 	11: Element.FIRE #L
 }
 
+var ElementToString = {
+	Element.FIRE: "Fire",
+	Element.WATER: "Water",
+	Element.LIGHT: "Light",
+	Element.DARK: "Dark",
+	Element.AIR: "Air",
+	Element.EARTH: "Earth",
+	Element.JUNK: "Junk",
+	Element.NONE: "None",
+}
+
 var ElementDurations = {
 	Element.FIRE: 5,
 	Element.WATER: 3,
@@ -11,7 +22,7 @@ var ElementDurations = {
 	Element.JUNK: 1
 }
 
-var activeElement = -1
+var activeElement = Element.NONE
 var activeDuration = 0
 var weaponsQueue = []
 @export var maxQueueSize = 5
@@ -41,17 +52,18 @@ func _ready():
 func _process(delta):
 	if activeDuration > 0:
 		activeDuration -= delta
-	if activeElement != -1 and activeDuration <= 0:
-		activeElement = -1
+	if activeElement != Element.NONE and activeDuration <= 0:
+		activeElement = Element.NONE
 		if weaponsQueue.size():
 			activateElement()
 		else:
 			element_activated.emit(Element.NONE)
 
 func _on_object_detector_object_detected(detectedValue):
+	print("signal received: ", detectedValue)
 	if DigitToElementMap.has(detectedValue):
 		push(DigitToElementMap[detectedValue])
 	else:
 		push(Element.JUNK)
-	if activeElement == -1:
+	if activeElement == Element.NONE:
 		activateElement()
