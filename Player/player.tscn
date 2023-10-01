@@ -37,10 +37,6 @@ position = Vector2(15, 0)
 texture = ExtResource("4_ydd8v")
 offset = Vector2(-15, 0)
 
-[node name="WaterHeal" type="Node2D" parent="."]
-position = Vector2(10, 0)
-script = ExtResource("5_csox7")
-
 [node name="Weapon_Fire" parent="." instance=ExtResource("9_h6nn1")]
 
 [node name="Weapon_Light" type="Node2D" parent="."]
