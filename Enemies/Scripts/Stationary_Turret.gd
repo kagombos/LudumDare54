@@ -7,10 +7,44 @@ extends	Area2D
 @export var maxHP = 20.0
 @export var HP = 20.0
 
+@export var resistChance = 0
+
+@export var ResistanceTypes = {
+	Element.FIRE: 1.0,
+	Element.EARTH: 1.0,
+	Element.LIGHT: 1.0,
+	Element.DARK: 1.0,
+	Element.AIR: 1.0,
+	Element.JUNK: 1.0
+}
+
+
 var turretCD = -1
 
 var spawning = true
 
+func _ready():
+	var resistSelection = randf_range(0, 1000)
+	if resistSelection <= resistChance:
+		ResistanceTypes[Element.FIRE] = 0.1
+		ResistanceTypes[Element.EARTH] = 0.1
+		ResistanceTypes[Element.LIGHT] = 0.1
+		ResistanceTypes[Element.DARK] = 0.1
+		ResistanceTypes[Element.AIR] = 0.1
+		ResistanceTypes[Element.JUNK] = 0
+		var weaknessChance = randi_range(1, 3)
+		if weaknessChance == 1:
+			ResistanceTypes[Element.FIRE] = 1
+			$TurretBase.texture = preload("res://Enemies/Sprites/ufoRed.png")
+			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitRed_5.png")
+		elif weaknessChance == 2:
+			ResistanceTypes[Element.EARTH] = 1
+			$TurretBase.texture = preload("res://Enemies/Sprites/ufoGreen.png")
+			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitGreen_7.png")
+		elif weaknessChance == 3:
+			ResistanceTypes[Element.LIGHT] = 1
+			$TurretBase.texture = preload("res://Enemies/Sprites/ufoYellow.png")
+			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitYellow_3.png")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	turretCD += delta

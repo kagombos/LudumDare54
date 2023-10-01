@@ -32,4 +32,9 @@ func _physics_process(delta):
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && scale.x > 0.01:
 		for i in bodies:
-			i.HP -= 10*delta
+			i.HP -= 10*delta*i.ResistanceTypes[Element.FIRE]
+	var areas = get_overlapping_areas()
+	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
+	if areas && scale.x > 0.01:
+		for i in areas:
+			i.HP -= 10*delta*i.ResistanceTypes[Element.FIRE]
