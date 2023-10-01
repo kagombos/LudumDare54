@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=9 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
 [ext_resource type="PackedScene" uid="uid://bwrjs83xj744j" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_hycri"]
+[ext_resource type="PackedScene" uid="uid://cchuxskc2rccm" path="res://Player/Prefabs/light_proj.tscn" id="3_rt4nt"]
 [ext_resource type="Script" path="res://TrailControl.gd" id="4_uhvwm"]
 [ext_resource type="Script" path="res://ObjectDetector.cs" id="5_evcg2"]
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
@@ -21,6 +22,10 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_cyqrb")]
+light_proj_prefab = ExtResource("3_rt4nt")
+maxHP = 500.0
+HP = 500.0
+lightFireRate = 0.5
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("3_hycri")]
 
