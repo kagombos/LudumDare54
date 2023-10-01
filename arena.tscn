@@ -43,13 +43,6 @@ offset_right = 1897.0
 offset_bottom = 186.0
 text = "Detected Letter: None"
 
-[node name="TrailControlRight" type="Node2D" parent="."]
-z_index = -2
-script = ExtResource("4_uhvwm")
-lineColor = Color(0, 0.72549, 0.603922, 1)
-lineWidth = 15
-mouseButton = 2
-
 [node name="Enemy Spawner2" parent="." instance=ExtResource("3_hycri")]
 enemy_prefab = ExtResource("6_yl35p")
 

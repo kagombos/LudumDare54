@@ -1,7 +1,11 @@
 extends Node2D
 
 var DigitToElementMap = {
-	11: Element.FIRE #L
+	11: Element.FIRE, #L
+	19: Element.EARTH, #T
+	0: Element.WATER, #A
+	12: Element.LIGHT, #M
+	2: Element.DARK, #C
 }
 
 var ElementToString = {
@@ -16,9 +20,11 @@ var ElementToString = {
 }
 
 var ElementDurations = {
-	Element.FIRE: 5,
+	Element.FIRE: 4,
+	Element.EARTH: 4,
 	Element.WATER: 3,
 	Element.LIGHT: 3,
+	Element.DARK: 3,
 	Element.JUNK: 1
 }
 
