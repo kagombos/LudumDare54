@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://TrailControl.gd" id="4_uhvwm"]
 [ext_resource type="Script" path="res://ObjectDetector.cs" id="5_evcg2"]
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
-[ext_resource type="Script" path="res://WeaponsQueue/Scripts/WeaponsQueue.gd" id="7_urgwb"]
+[ext_resource type="PackedScene" uid="uid://yrbpj0xrruc" path="res://WeaponsQueue/weapons_queue.tscn" id="7_cwm67"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_8emuj")
@@ -53,8 +53,6 @@ mouseButton = 2
 [node name="Enemy Spawner2" parent="." instance=ExtResource("3_hycri")]
 enemy_prefab = ExtResource("6_yl35p")
 
-[node name="WeaponsQueue" type="Node2D" parent="."]
-script = ExtResource("7_urgwb")
+[node name="WeaponsQueue" parent="." instance=ExtResource("7_cwm67")]
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
-[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="WeaponsQueue" method="_on_object_detector_object_detected"]
