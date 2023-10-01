@@ -30,6 +30,7 @@ func _ready():
 		Element.WATER: $Weapon_Water,
 		Element.DARK: $Weapon_Dark,
 		Element.LIGHT: $Weapon_Light,
+		Element.EARTH: $Weapon_Earth,
 	}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 

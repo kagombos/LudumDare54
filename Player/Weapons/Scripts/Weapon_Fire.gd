@@ -44,6 +44,7 @@ func wind_down_weapon(delta):
 		$FireCone.set_process(false)
 
 func start_weapon():
+	winding_down = false
 	$FireCone.set_process(true)
 
 func stop_weapon():
