@@ -56,7 +56,6 @@ public partial class ObjectDetector : Node
 
 		// For each pair of points, fill in every pixel that is passed through
 		// This could be done more efficiently, see Bresenham's line algorithm
-		GD.Print(line.Length);
 		for (var i = 0; i < line.Length - 1; i++) {
 			double x1 = line[i].X;
 			double y1 = line[i].Y;
@@ -95,7 +94,7 @@ public partial class ObjectDetector : Node
 		return byteArray;
 	}
 
-	private char predictCharacter(byte[] byteArray) {
+	private int predictCharacter(byte[] byteArray) {
 		var data = np.array(byteArray)
 			.astype(NPTypeCode.Single)
 			.flatten()
@@ -111,7 +110,7 @@ public partial class ObjectDetector : Node
 		var max = testOutput.Data.Max();
 		var index = Array.IndexOf(testOutput.Data, max);
 
-		return (char) (index + 65);
+		return index;
 	}
 
 	public void _on_trail_control_left_line_drawn (Vector2[] line) {
@@ -125,10 +124,10 @@ public partial class ObjectDetector : Node
 		node.AddChild(newSprite);
 		newSprite.Texture = ImageTexture.CreateFromImage(image);
 
-		char prediction = predictCharacter(byteArray);
+		int prediction = predictCharacter(byteArray);
 
 		var text = GetNode<RichTextLabel>("DebugText");
-		text.Text = "Detected Letter: " + prediction;
+		text.Text = "Detected Letter: " + ((char) (65 + prediction));
 		EmitSignal("ObjectDetected", prediction);
 	}
 

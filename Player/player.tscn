@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=3 uid="uid://de32w2gha1wwq"]
+
+[ext_resource type="Script" path="res://Player/Scripts/Player_Controller.gd" id="1_bktj5"]
+[ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="2_jyicx"]
+[ext_resource type="Texture2D" uid="uid://c2p6ti8yaut44" path="res://Player/Sprites/Health Bar Empty.png" id="3_3x2jw"]
+[ext_resource type="Texture2D" uid="uid://bdoc8wg0sjnwa" path="res://Player/Sprites/Health Bar.png" id="4_ydd8v"]
+[ext_resource type="Script" path="res://Player/Scripts/FireCone.gd" id="5_btm5k"]
+[ext_resource type="Texture2D" uid="uid://d10h5it3i20xf" path="res://Player/Sprites/FireCone1.png" id="6_1gg6a"]
+[ext_resource type="Texture2D" uid="uid://ogkmmjua56ef" path="res://Player/Sprites/FireCone2.png" id="7_0efv6"]
+[ext_resource type="Texture2D" uid="uid://cu4ojlaq7w8js" path="res://Player/Sprites/FireCone3.png" id="8_mfiyh"]
+[ext_resource type="Script" path="res://Player/Scripts/WaterHeal.gd" id="9_m6n74"]
+[ext_resource type="Texture2D" uid="uid://bbj4sn8oei5na" path="res://Player/Sprites/shield1.png" id="10_ntksb"]
+[ext_resource type="Texture2D" uid="uid://b7ajcrlsrr6g7" path="res://Player/Sprites/shield2.png" id="11_uwg73"]
+[ext_resource type="Texture2D" uid="uid://dkqh48clryrcp" path="res://Player/Sprites/shield3.png" id="12_p8u3o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxgr8"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1gg6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0efv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mfiyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 21.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jipdo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ntksb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p8u3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p8u3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ntksb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+position = Vector2(1059, 497)
+collision_layer = 5
+collision_mask = 3
+motion_mode = 1
+floor_snap_length = 0.0
+script = ExtResource("1_bktj5")
+light_proj_prefab = null
+maxHP = null
+HP = null
+lightFireRate = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 5)
+shape = SubResource("CircleShape2D_gjbbm")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Base_Ship" type="Sprite2D" parent="."]
+texture = ExtResource("2_jyicx")
+
+[node name="Health_Bar_Empty" type="Sprite2D" parent="Base_Ship"]
+position = Vector2(20, 0)
+texture = ExtResource("3_3x2jw")
+
+[node name="Health_Bar" type="Sprite2D" parent="Base_Ship/Health_Bar_Empty"]
+position = Vector2(15, 0)
+texture = ExtResource("4_ydd8v")
+offset = Vector2(-15, 0)
+
+[node name="FireCone" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(-150, 0)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("5_btm5k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="FireCone"]
+sprite_frames = SubResource("SpriteFrames_jxgr8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FireCone"]
+polygon = PackedVector2Array(-122, -93, -149, 2, -120, 94, 143, 18, 143, -18)
+
+[node name="WaterHeal" type="Node2D" parent="."]
+position = Vector2(10, 0)
+script = ExtResource("9_m6n74")
+
+[node name="DarkShield" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_jipdo")
+frame_progress = 0.513136

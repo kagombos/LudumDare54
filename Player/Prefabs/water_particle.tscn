@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://4se8ra5dxwha"]
+
+[ext_resource type="Texture2D" uid="uid://b7rpii0tft0ox" path="res://Player/Sprites/laserBlue09.png" id="1_uxdyc"]
+[ext_resource type="Script" path="res://Player/Scripts/Heal Particle.gd" id="2_7gext"]
+
+[node name="WaterParticle" type="Sprite2D"]
+texture = ExtResource("1_uxdyc")
+script = ExtResource("2_7gext")
