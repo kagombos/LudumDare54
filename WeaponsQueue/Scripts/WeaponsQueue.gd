@@ -1,22 +1,41 @@
 extends Node2D
 
 var DigitToElementMap = {
-	11: Element.FIRE #L
+	11: Element.FIRE, #L
+	19: Element.EARTH, #T
+	0: Element.WATER, #A
+	12: Element.LIGHT, #M
+	2: Element.DARK, #C
+}
+
+var ElementToString = {
+	Element.FIRE: "Fire",
+	Element.WATER: "Water",
+	Element.LIGHT: "Light",
+	Element.DARK: "Dark",
+	Element.AIR: "Air",
+	Element.EARTH: "Earth",
+	Element.JUNK: "Junk",
+	Element.NONE: "None",
 }
 
 var ElementDurations = {
-	Element.FIRE: 5,
+	Element.FIRE: 4,
+	Element.EARTH: 4,
 	Element.WATER: 3,
 	Element.LIGHT: 3,
+	Element.DARK: 3,
 	Element.JUNK: 1
 }
 
-var activeElement = -1
+var activeElement = Element.NONE
 var activeDuration = 0
 var weaponsQueue = []
 @export var maxQueueSize = 5
 
 var timer = 0
+
+signal element_activated
 
 func push(element):
 	if weaponsQueue.size() < 5:
@@ -28,8 +47,8 @@ func pop():
 
 func activateElement():
 	activeElement = pop()
-	print("activating element ", activeElement)
 	activeDuration = ElementDurations[activeElement]
+	element_activated.emit(activeElement)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -39,15 +58,18 @@ func _ready():
 func _process(delta):
 	if activeDuration > 0:
 		activeDuration -= delta
-	if activeElement != -1 and activeDuration <= 0:
-		activeElement = -1
+	if activeElement != Element.NONE and activeDuration <= 0:
+		activeElement = Element.NONE
 		if weaponsQueue.size():
 			activateElement()
+		else:
+			element_activated.emit(Element.NONE)
 
 func _on_object_detector_object_detected(detectedValue):
+	print("signal received: ", detectedValue)
 	if DigitToElementMap.has(detectedValue):
 		push(DigitToElementMap[detectedValue])
 	else:
 		push(Element.JUNK)
-	if activeElement == -1:
+	if activeElement == Element.NONE:
 		activateElement()
