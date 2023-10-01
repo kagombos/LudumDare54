@@ -8,7 +8,6 @@ var turretCD = -1
 
 var spawning = true
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	turretCD += delta
@@ -23,4 +22,3 @@ func _process(delta):
 		bullet_instance.position = $TurretBase/TurretAim/LaserPoint.get_global_position()
 		bullet_instance.rotation = $TurretBase/TurretAim.rotation
 		add_sibling(bullet_instance)
-

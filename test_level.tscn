@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2p6ti8yaut44" path="res://Player/Sprites/Health Bar Empty.png" id="4_mwjpe"]
 [ext_resource type="Script" path="res://trail_control.gd" id="4_xulbm"]
 [ext_resource type="Texture2D" uid="uid://bdoc8wg0sjnwa" path="res://Player/Sprites/Health Bar.png" id="5_y30vp"]
-[ext_resource type="PackedScene" uid="uid://bwrjs83xj744j" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="6_dnttr"]
+[ext_resource type="PackedScene" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="6_dnttr"]
 [ext_resource type="Script" path="res://Player/Scripts/FireCone.gd" id="6_krtcq"]
 [ext_resource type="Texture2D" uid="uid://d10h5it3i20xf" path="res://Player/Sprites/FireCone1.png" id="7_dh6k3"]
 [ext_resource type="Texture2D" uid="uid://ogkmmjua56ef" path="res://Player/Sprites/FireCone2.png" id="8_3egcs"]
@@ -48,6 +48,7 @@ color = Color(0, 0, 0, 1)
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 position = Vector2(1059, 497)
 collision_layer = 5
+collision_mask = 3
 motion_mode = 1
 floor_snap_length = 0.0
 script = ExtResource("2_3hi7j")
@@ -69,13 +70,11 @@ position = Vector2(15, 0)
 texture = ExtResource("5_y30vp")
 offset = Vector2(-15, 0)
 
-[node name="FireCone" type="CharacterBody2D" parent="Player"]
+[node name="FireCone" type="Area2D" parent="Player"]
 z_index = -1
 position = Vector2(-150, 0)
 collision_layer = 0
 collision_mask = 2
-motion_mode = 1
-floor_snap_length = 0.0
 script = ExtResource("6_krtcq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/FireCone"]

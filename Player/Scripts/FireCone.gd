@@ -1,7 +1,6 @@
-extends CharacterBody2D
+extends Area2D
 
 var fireActive = false
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,3 +28,8 @@ func _physics_process(delta):
 			position.x = 0
 			scale = Vector2.ZERO
 	
+	var bodies = get_overlapping_bodies()
+	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
+	print(scale)
+	if bodies && scale.x > 0.01:
+		bodies[0].queue_free()
