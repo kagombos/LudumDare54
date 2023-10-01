@@ -5,7 +5,8 @@ var velocity = Vector2.ZERO
 
 @export var orbitDirection = -1
 
-@export var orbitRadius = 1
+@export var orbitRadius = 120
+
 
 
 func _ready():
@@ -17,14 +18,14 @@ func _ready():
 	timer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	velocity = Vector2.ZERO
 	look_at(get_global_mouse_position())
-	if position.distance_to(get_global_mouse_position()) > orbitRadius * 1.5:
+	if position.distance_to(get_global_mouse_position()) < orbitRadius:
 		velocity = (transform.x*speed*delta)
-	elif position.distance_to(get_global_mouse_position()) < orbitRadius:
-		velocity = (-transform.x*speed*delta)
-	velocity += (transform.y*speed*orbitDirection*0.4*delta)
+	velocity += (transform.y*speed*orbitDirection*0.05*delta)
 	velocity = velocity.normalized() * speed
 	position += velocity * delta
+	
 	var bodies = get_overlapping_bodies()
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && scale.x > 0.01:

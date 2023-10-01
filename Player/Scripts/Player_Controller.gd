@@ -74,7 +74,7 @@ func _physics_process(delta):
 			for i in range(5):
 				var earth_proj = earth_proj_prefab.instantiate()
 				earth_proj.rotation_degrees = rotation_degrees + 72*i
-				earth_proj.position = position + earth_proj.transform.x.normalized()
+				earth_proj.position = earth_proj.transform.x * 20
 				add_child(earth_proj)
 	if darkActive:
 		if HP < darkHP:
