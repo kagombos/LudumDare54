@@ -6,5 +6,6 @@ enum {
 	DARK,
 	AIR,
 	EARTH,
-	JUNK
+	JUNK,
+	NONE
 }

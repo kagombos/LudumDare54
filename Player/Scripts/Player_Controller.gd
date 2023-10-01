@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-@export var light_proj_prefab = preload("res://Player/Prefabs/light_proj.tscn")
+var ElementToScene
+
+var activeElement = Element.NONE
 
 var lightActive = false
 var darkActive = false
@@ -12,15 +14,18 @@ var rotation_locked
 @export var maxHP = 500.0
 @export var HP = 500.0
 
-@export var lightFireRate = 0.5
-
 var lightCD = 0
 
 func _ready():
 	HP = maxHP
 	last_position = get_global_mouse_position()
 	position = get_global_mouse_position()
-	$DarkShield.scale = Vector2.ZERO
+	ElementToScene = {
+		Element.FIRE: $Weapon_Fire,
+		Element.WATER: $Weapon_Water,
+		Element.DARK: $Weapon_Dark,
+		Element.LIGHT: $Weapon_Light,
+	}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _input(event):
@@ -29,7 +34,6 @@ func _input(event):
 			rotation_locked = true
 		else:
 			rotation_locked = false
-		
 
 func _physics_process(delta):
 	position = get_global_mouse_position()
@@ -37,6 +41,9 @@ func _physics_process(delta):
 		look_at(last_position)
 	last_position = position
 	$Base_Ship/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
+	
+	ElementToScene.values().map(func (weapon): weapon.active = false)
+	
 	if Input.is_action_pressed("Light_Debug"):
 		lightActive = true
 	else:
@@ -44,26 +51,21 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Dark_Debug"):
 		darkHP = HP
 	if Input.is_action_pressed("Dark_Debug"):
-		darkActive = true
-		$DarkShield.play("default")
-		$DarkShield.scale = Vector2.ONE
+		$Weapon_Dark.active = true
 	else:
-		darkActive = false
-		$DarkShield.stop()
-		$DarkShield.scale = Vector2.ZERO
-	if lightActive:
-		lightCD += delta
-		if lightCD > lightFireRate:
-			lightCD -= lightFireRate
-			var light_proj = light_proj_prefab.instantiate()
-			light_proj.position = position
-			light_proj.rotation = rotation
-			add_sibling(light_proj)
-	if darkActive:
-		if HP < darkHP:
-			HP = darkHP
-		else:
-			darkHP = HP
+		$Weapon_Dark.active = false
+#	if darkActive:
+#		if HP < darkHP:
+#			HP = darkHP
+#		else:
+#			darkHP = HP
+
+	if ElementToScene.has(activeElement):
+		ElementToScene[activeElement].active = true
+	
 	if HP <= 0:
 		#replace this with game over code
 		queue_free()
+
+func _on_weapons_queue_element_activated(element):
+	activeElement = element

@@ -18,6 +18,8 @@ var weaponsQueue = []
 
 var timer = 0
 
+signal element_activated
+
 func push(element):
 	if weaponsQueue.size() < 5:
 		weaponsQueue.push_back(element)
@@ -28,8 +30,8 @@ func pop():
 
 func activateElement():
 	activeElement = pop()
-	print("activating element ", activeElement)
 	activeDuration = ElementDurations[activeElement]
+	element_activated.emit(activeElement)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -43,6 +45,8 @@ func _process(delta):
 		activeElement = -1
 		if weaponsQueue.size():
 			activateElement()
+		else:
+			element_activated.emit(Element.NONE)
 
 func _on_object_detector_object_detected(detectedValue):
 	if DigitToElementMap.has(detectedValue):

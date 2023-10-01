@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://de32w2gha1wwq"]
+[gd_scene load_steps=14 format=3 uid="uid://de32w2gha1wwq"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Player_Controller.gd" id="1_bktj5"]
 [ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="2_jyicx"]
 [ext_resource type="Texture2D" uid="uid://c2p6ti8yaut44" path="res://Player/Sprites/Health Bar Empty.png" id="3_3x2jw"]
 [ext_resource type="Texture2D" uid="uid://bdoc8wg0sjnwa" path="res://Player/Sprites/Health Bar.png" id="4_ydd8v"]
-[ext_resource type="PackedScene" uid="uid://b51hmt07rctw8" path="res://Player/Weapons/fire_cone.tscn" id="5_n5t5v"]
-[ext_resource type="Script" path="res://Player/Scripts/WaterHeal.gd" id="9_m6n74"]
+[ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Water.gd" id="5_csox7"]
+[ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Dark.gd" id="8_kgvd7"]
+[ext_resource type="PackedScene" uid="uid://c2v0rlkfrkg45" path="res://Player/Weapons/weapon_fire.tscn" id="9_h6nn1"]
 [ext_resource type="Texture2D" uid="uid://bbj4sn8oei5na" path="res://Player/Sprites/shield1.png" id="10_ntksb"]
+[ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Light.gd" id="10_wja2f"]
 [ext_resource type="Texture2D" uid="uid://b7ajcrlsrr6g7" path="res://Player/Sprites/shield2.png" id="11_uwg73"]
 [ext_resource type="Texture2D" uid="uid://dkqh48clryrcp" path="res://Player/Sprites/shield3.png" id="12_p8u3o"]
 
@@ -69,13 +71,27 @@ position = Vector2(15, 0)
 texture = ExtResource("4_ydd8v")
 offset = Vector2(-15, 0)
 
-[node name="FireCone" parent="." instance=ExtResource("5_n5t5v")]
-
 [node name="WaterHeal" type="Node2D" parent="."]
 position = Vector2(10, 0)
-script = ExtResource("9_m6n74")
+script = ExtResource("5_csox7")
 
-[node name="DarkShield" type="AnimatedSprite2D" parent="."]
+[node name="Weapon_Fire" parent="." instance=ExtResource("9_h6nn1")]
+fireRate = 0.0
+
+[node name="Weapon_Light" type="Node2D" parent="."]
+script = ExtResource("10_wja2f")
+physics_weapon = false
+fireRate = 0.5
+
+[node name="Weapon_Dark" type="Node2D" parent="."]
+script = ExtResource("8_kgvd7")
+
+[node name="DarkShield" type="AnimatedSprite2D" parent="Weapon_Dark"]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_jipdo")
 frame_progress = 0.513136
+
+[node name="Weapon_Water" type="Node2D" parent="."]
+script = ExtResource("5_csox7")
+physics_weapon = false
+fireRate = 0.3
