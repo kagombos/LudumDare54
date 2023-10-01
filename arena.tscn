@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
-[ext_resource type="PackedScene" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_hycri"]
+[ext_resource type="PackedScene" uid="uid://bwrjs83xj744j" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_hycri"]
 [ext_resource type="Script" path="res://TrailControl.gd" id="4_uhvwm"]
 [ext_resource type="Script" path="res://ObjectDetector.cs" id="5_evcg2"]
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
