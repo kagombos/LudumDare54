@@ -31,6 +31,7 @@ func _ready():
 		Element.DARK: $Weapon_Dark,
 		Element.LIGHT: $Weapon_Light,
 		Element.EARTH: $Weapon_Earth,
+		Element.AIR: $Weapon_Air,
 	}
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
@@ -61,6 +62,8 @@ func _physics_process(delta):
 		$Weapon_Earth.active = true
 	if Input.is_action_pressed("Light_Debug"):
 		$Weapon_Light.active = true
+	if Input.is_action_pressed("Air_Debug"):
+		$Weapon_Air.active = true
 
 	if ElementToScene.has(activeElement):
 		ElementToScene[activeElement].active = true

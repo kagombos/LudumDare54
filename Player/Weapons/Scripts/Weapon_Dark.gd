@@ -18,9 +18,9 @@ func run_weapon(delta):
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && $DarkCollision.scale.x > 0.01:
 		for i in bodies:
-			i.HP -= 15*delta*i.ResistanceTypes[Element.DARK]
+			i.HP -= 8.*delta*i.ResistanceTypes[Element.DARK]
 	var areas = $DarkCollision.get_overlapping_areas()
 	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
 	if areas && $DarkCollision.scale.x > 0.01:
 		for i in areas:
-			i.HP -= 15*delta*i.ResistanceTypes[Element.DARK]
+			i.HP -= 8*delta*i.ResistanceTypes[Element.DARK]
