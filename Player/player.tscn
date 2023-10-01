@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://de32w2gha1wwq"]
+[gd_scene load_steps=16 format=3 uid="uid://de32w2gha1wwq"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Player_Controller.gd" id="1_bktj5"]
 [ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="2_jyicx"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ogkmmjua56ef" path="res://Player/Sprites/FireCone2.png" id="7_0efv6"]
 [ext_resource type="Texture2D" uid="uid://cu4ojlaq7w8js" path="res://Player/Sprites/FireCone3.png" id="8_mfiyh"]
 [ext_resource type="Script" path="res://Player/Scripts/WaterHeal.gd" id="9_m6n74"]
+[ext_resource type="Texture2D" uid="uid://bbj4sn8oei5na" path="res://Player/Sprites/shield1.png" id="10_ntksb"]
+[ext_resource type="Texture2D" uid="uid://b7ajcrlsrr6g7" path="res://Player/Sprites/shield2.png" id="11_uwg73"]
+[ext_resource type="Texture2D" uid="uid://dkqh48clryrcp" path="res://Player/Sprites/shield3.png" id="12_p8u3o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
 
@@ -28,6 +31,38 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 21.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jipdo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ntksb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p8u3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p8u3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_uwg73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ntksb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
@@ -71,3 +106,8 @@ polygon = PackedVector2Array(-122, -93, -149, 2, -120, 94, 143, 18, 143, -18)
 [node name="WaterHeal" type="Node2D" parent="."]
 position = Vector2(10, 0)
 script = ExtResource("9_m6n74")
+
+[node name="DarkShield" type="AnimatedSprite2D" parent="."]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_jipdo")
+frame_progress = 0.768091

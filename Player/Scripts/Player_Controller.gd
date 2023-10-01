@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var light_proj_prefab = preload("res://Player/Prefabs/light_proj.tscn")
 
 var lightActive = false
+var darkActive = false
+var darkHP = 500.0
 
 var last_position
 var rotation_locked
@@ -17,7 +19,8 @@ var lightCD = 0
 func _ready():
 	HP = maxHP
 	last_position = get_global_mouse_position()
-	position = get_global_mouse_position() 
+	position = get_global_mouse_position()
+	$DarkShield.scale = Vector2.ZERO
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 func _input(event):
@@ -38,6 +41,16 @@ func _physics_process(delta):
 		lightActive = true
 	else:
 		lightActive = false
+	if Input.is_action_just_pressed("Dark_Debug"):
+		darkHP = HP
+	if Input.is_action_pressed("Dark_Debug"):
+		darkActive = true
+		$DarkShield.play("default")
+		$DarkShield.scale = Vector2.ONE
+	else:
+		darkActive = false
+		$DarkShield.stop()
+		$DarkShield.scale = Vector2.ZERO
 	if lightActive:
 		lightCD += delta
 		if lightCD > lightFireRate:
@@ -46,6 +59,11 @@ func _physics_process(delta):
 			light_proj.position = position
 			light_proj.rotation = rotation
 			add_sibling(light_proj)
+	if darkActive:
+		if HP < darkHP:
+			HP = darkHP
+		else:
+			darkHP = HP
 	if HP <= 0:
 		#replace this with game over code
 		queue_free()
