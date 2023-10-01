@@ -52,9 +52,9 @@ func _physics_process(delta):
 		$DarkShield.stop()
 		$DarkShield.scale = Vector2.ZERO
 	if lightActive:
-		lightCD += deltaate:
-			lightCD -= lightFireRate
-		if lightCD > lightFireR
+		lightCD += delta
+		lightCD -= lightFireRate
+		if lightCD > lightFireRate:
 			var light_proj = light_proj_prefab.instantiate()
 			light_proj.position = position
 			light_proj.rotation = rotation
