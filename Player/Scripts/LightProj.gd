@@ -32,3 +32,8 @@ func _physics_process(delta):
 	velocity = velocity.normalized() * speed
 	rotation_degrees += 360*delta
 	position += velocity * delta
+	var bodies = get_overlapping_bodies()
+	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
+	if bodies && scale.x > 0.01:
+		bodies[0].HP -= 2
+		queue_free()

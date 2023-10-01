@@ -110,4 +110,4 @@ script = ExtResource("9_m6n74")
 [node name="DarkShield" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_jipdo")
-frame_progress = 0.768091
+frame_progress = 0.513136

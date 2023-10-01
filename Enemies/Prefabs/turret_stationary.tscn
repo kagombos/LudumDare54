@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbtjlt5bk1rwp"]
+[gd_scene load_steps=8 format=3 uid="uid://bbtjlt5bk1rwp"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Stationary_Turret.gd" id="1_sw0ac"]
 [ext_resource type="Texture2D" uid="uid://drep6tcik7egy" path="res://Enemies/Sprites/ufoBlue.png" id="2_ihfb5"]
 [ext_resource type="Texture2D" uid="uid://cuktcoqcybwg8" path="res://Enemies/Sprites/cockpitBlue_5.png" id="3_yvkdr"]
 [ext_resource type="Script" path="res://Enemies/Scripts/TurretAim.gd" id="4_vk0vu"]
+[ext_resource type="Texture2D" uid="uid://bbo6ce07lfiwp" path="res://Enemies/Sprites/Turret_HP_Empty.png" id="5_6byaq"]
+[ext_resource type="Texture2D" uid="uid://dtes3kpsic60" path="res://Enemies/Sprites/Turret_HP_Indicator.png" id="6_0be2y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t3jag"]
 
@@ -23,6 +25,15 @@ script = ExtResource("4_vk0vu")
 
 [node name="LaserPoint" type="Node2D" parent="TurretBase/TurretAim"]
 position = Vector2(75, 0)
+
+[node name="Health_Bar_Empty" type="Sprite2D" parent="TurretBase/TurretAim"]
+position = Vector2(37.5, 0)
+texture = ExtResource("5_6byaq")
+
+[node name="Health_Bar" type="Sprite2D" parent="TurretBase/TurretAim/Health_Bar_Empty"]
+position = Vector2(-20, 0)
+texture = ExtResource("6_0be2y")
+offset = Vector2(20, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.5, 4.5)

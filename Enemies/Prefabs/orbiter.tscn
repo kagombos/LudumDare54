@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cjivdjvi5qk2i"]
+[gd_scene load_steps=6 format=3 uid="uid://cjivdjvi5qk2i"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Orbiter.gd" id="1_mdcjb"]
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="2_lhjtc"]
+[ext_resource type="Texture2D" uid="uid://b7x7e1qobih3x" path="res://Enemies/Sprites/Orbiter_HP_Empty.png" id="3_frkby"]
+[ext_resource type="Texture2D" uid="uid://csppl4rttdrnp" path="res://Enemies/Sprites/Orbiter_HP_Indicator.png" id="4_3l0g1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seikd"]
 
@@ -19,8 +21,15 @@ script = ExtResource("1_mdcjb")
 scale = Vector2(4.2, 5.5)
 shape = SubResource("CircleShape2D_seikd")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Orbiter_Ship" type="Sprite2D" parent="."]
 texture = ExtResource("2_lhjtc")
+
+[node name="OrbiterHPEmpty" type="Sprite2D" parent="Orbiter_Ship"]
+position = Vector2(-25, 0)
+texture = ExtResource("3_frkby")
+
+[node name="OrbiterHPIndicator" type="Sprite2D" parent="Orbiter_Ship/OrbiterHPEmpty"]
+texture = ExtResource("4_3l0g1")
 
 [node name="LaserPoint" type="Node2D" parent="."]
 position = Vector2(75, 0)

@@ -12,6 +12,9 @@ extends RigidBody2D
 
 @export var canShoot = false
 
+@export var maxHP = 10.0
+@export var HP = 10.0
+
 var turretCD = -1
 
 var spawning = true
@@ -21,6 +24,7 @@ var despawning = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	turretCD += delta
+	$Orbiter_Ship/OrbiterHPEmpty/OrbiterHPIndicator.scale = Vector2.ONE * HP/maxHP
 	look_at(get_global_mouse_position())
 	if spawning:
 		scale = Vector2(1.2-abs(turretCD),1.2-abs(turretCD))
@@ -40,6 +44,9 @@ func _physics_process(delta):
 		bullet_instance.position = $LaserPoint.get_global_position()
 		bullet_instance.rotation = rotation
 		add_sibling(bullet_instance)
+	if HP <= 0:
+		#replace this with dewth code
+		queue_free()
 		
 
 

@@ -4,6 +4,9 @@ extends	StaticBody2D
 
 @export var fireRate = 1
 
+@export var maxHP = 20.0
+@export var HP = 20.0
+
 var turretCD = -1
 
 var spawning = true
@@ -22,3 +25,7 @@ func _process(delta):
 		bullet_instance.position = $TurretBase/TurretAim/LaserPoint.get_global_position()
 		bullet_instance.rotation = $TurretBase/TurretAim.rotation
 		add_sibling(bullet_instance)
+	$TurretBase/TurretAim/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
+	if HP <= 0:
+		#replace this with death code
+		queue_free()
