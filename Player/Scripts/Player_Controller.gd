@@ -45,12 +45,12 @@ func _physics_process(delta):
 		darkHP = HP
 	if Input.is_action_pressed("Dark_Debug"):
 		darkActive = true
-		$DarkShield.play("default")
-		$DarkShield.scale = Vector2.ONE
+		$DarkCollison/DarkShield.play("default")
+		$DarkCollison.scale = Vector2.ONE
 	else:
 		darkActive = false
-		$DarkShield.stop()
-		$DarkShield.scale = Vector2.ZERO
+		$DarkShield/DarkShield.stop()
+		$DarkCollison.scale = Vector2.ZERO
 	if lightActive:
 		lightCD += delta
 		if lightCD > lightFireRate:
