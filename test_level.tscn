@@ -1,38 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=7 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://set_cursor.gd" id="1_rskk4"]
-[ext_resource type="Script" path="res://Player/Scripts/Player_Controller.gd" id="2_3hi7j"]
-[ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="3_nmpip"]
-[ext_resource type="Texture2D" uid="uid://c2p6ti8yaut44" path="res://Player/Sprites/Health Bar Empty.png" id="4_mwjpe"]
+[ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_l7w5e"]
 [ext_resource type="Script" path="res://trail_control.gd" id="4_xulbm"]
-[ext_resource type="Texture2D" uid="uid://bdoc8wg0sjnwa" path="res://Player/Sprites/Health Bar.png" id="5_y30vp"]
-[ext_resource type="Script" path="res://ObjectDetector.cs" id="7_qgu0e"]
 [ext_resource type="PackedScene" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="6_dnttr"]
-[ext_resource type="Script" path="res://Player/Scripts/FireCone.gd" id="6_krtcq"]
-[ext_resource type="Texture2D" uid="uid://d10h5it3i20xf" path="res://Player/Sprites/FireCone1.png" id="7_dh6k3"]
-[ext_resource type="Texture2D" uid="uid://ogkmmjua56ef" path="res://Player/Sprites/FireCone2.png" id="8_3egcs"]
+[ext_resource type="Script" path="res://ObjectDetector.cs" id="7_qgu0e"]
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="8_ywe02"]
-[ext_resource type="Texture2D" uid="uid://cu4ojlaq7w8js" path="res://Player/Sprites/FireCone3.png" id="9_c2piy"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_gjbbm"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_jxgr8"]
-resource_local_to_scene = true
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_dh6k3")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_3egcs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_c2piy")
-}],
-"loop": true,
-"name": &"default",
-"speed": 21.0
-}]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_rskk4")
@@ -46,43 +19,7 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(1059, 497)
-collision_layer = 5
-collision_mask = 3
-motion_mode = 1
-floor_snap_length = 0.0
-script = ExtResource("2_3hi7j")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-scale = Vector2(4, 5)
-shape = SubResource("CircleShape2D_gjbbm")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Base_Ship" type="Sprite2D" parent="Player"]
-texture = ExtResource("3_nmpip")
-
-[node name="Health_Bar_Empty" type="Sprite2D" parent="Player/Base_Ship"]
-position = Vector2(20, 0)
-texture = ExtResource("4_mwjpe")
-
-[node name="Health_Bar" type="Sprite2D" parent="Player/Base_Ship/Health_Bar_Empty"]
-position = Vector2(15, 0)
-texture = ExtResource("5_y30vp")
-offset = Vector2(-15, 0)
-
-[node name="FireCone" type="Area2D" parent="Player"]
-z_index = -1
-position = Vector2(-150, 0)
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("6_krtcq")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player/FireCone"]
-sprite_frames = SubResource("SpriteFrames_jxgr8")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player/FireCone"]
-polygon = PackedVector2Array(-122, -93, -149, 2, -120, 94, 143, 18, 143, -18)
+[node name="Player" parent="." instance=ExtResource("2_l7w5e")]
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("6_dnttr")]
 
