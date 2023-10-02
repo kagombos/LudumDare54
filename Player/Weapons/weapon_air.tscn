@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://wjvg605kxum2"]
+[gd_scene load_steps=2 format=3 uid="uid://cfl1npr33pmpa"]
 
 [ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Air.gd" id="1_xe2ia"]
 

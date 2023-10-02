@@ -27,8 +27,7 @@ color = Color(0, 0, 0, 1)
 [node name="TrailControlLeft" type="Node2D" parent="."]
 z_index = -2
 script = ExtResource("4_uhvwm")
-lineColor = Color(1, 0, 1, 1)
-lineWidth = 15
+lineWidth = 5
 
 [node name="ObjectDetector" type="Node2D" parent="TrailControlLeft"]
 script = ExtResource("5_evcg2")
@@ -49,5 +48,7 @@ enemy_prefab = ExtResource("6_yl35p")
 [node name="WeaponsQueue" parent="." instance=ExtResource("7_cwm67")]
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="TrailControlLeft" method="_on_object_detector_object_detected"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="WeaponsQueue" method="_on_object_detector_object_detected"]
 [connection signal="element_activated" from="WeaponsQueue" to="Player" method="_on_weapons_queue_element_activated"]

@@ -15,6 +15,10 @@ run/main_scene="res://Main Menu.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+ElementUtils="*res://Global/element_utils.gd"
+
 [display]
 
 window/size/viewport_width=1920

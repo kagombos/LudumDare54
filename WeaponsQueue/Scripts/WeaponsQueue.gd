@@ -1,30 +1,12 @@
 extends Node2D
 
-var DigitToElementMap = {
-	11: Element.FIRE, #L
-	19: Element.EARTH, #T
-	0: Element.WATER, #A
-	12: Element.LIGHT, #M
-	2: Element.DARK, #C
-}
-
-var ElementToString = {
-	Element.FIRE: "Fire",
-	Element.WATER: "Water",
-	Element.LIGHT: "Light",
-	Element.DARK: "Dark",
-	Element.AIR: "Air",
-	Element.EARTH: "Earth",
-	Element.JUNK: "Junk",
-	Element.NONE: "None",
-}
-
 var ElementDurations = {
 	Element.FIRE: 4,
 	Element.EARTH: 4,
 	Element.WATER: 3,
 	Element.LIGHT: 3,
 	Element.DARK: 3,
+	Element.AIR: 4,
 	Element.JUNK: 1
 }
 
@@ -67,8 +49,8 @@ func _process(delta):
 
 func _on_object_detector_object_detected(detectedValue):
 	print("signal received: ", detectedValue)
-	if DigitToElementMap.has(detectedValue):
-		push(DigitToElementMap[detectedValue])
+	if ElementUtils.DigitToElementMap.has(detectedValue):
+		push(ElementUtils.DigitToElementMap[detectedValue])
 	else:
 		push(Element.JUNK)
 	if activeElement == Element.NONE:

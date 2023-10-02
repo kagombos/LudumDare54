@@ -5,11 +5,11 @@ extends Area2D
 
 @export var steerSpeed = 200
 
+@export var damage: float = 1.5
 var velocity = Vector2.ZERO
 var acceleration = Vector2.ZERO
 var target = null
 
-@export var damage = 1
 @export var pierce = 0.0
 
 var fullSize = false
