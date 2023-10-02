@@ -32,11 +32,11 @@ var ElementToColor = {
 }
 
 var ElementToIcon = {
-	Element.FIRE: Image.load_from_file("res://UI/Sprites/Fire_Icon.png"),
-	Element.WATER: Image.load_from_file("res://UI/Sprites/Water_Icon.png"),
-	Element.EARTH: Image.load_from_file("res://UI/Sprites/Earth_Icon.png"),
-	Element.AIR: Image.load_from_file("res://UI/Sprites/Air_Icon.png"),
-	Element.LIGHT: Image.load_from_file("res://UI/Sprites/Light_Icon.png"),
-	Element.DARK: Image.load_from_file("res://UI/Sprites/Dark_Icon.png"),
-	Element.JUNK: Image.load_from_file("res://UI/Sprites/Junk_Icon.png"),
+	Element.FIRE: preload("res://UI/Sprites/Fire_Icon.png"),
+	Element.WATER: preload("res://UI/Sprites/Water_Icon.png"),
+	Element.EARTH: preload("res://UI/Sprites/Earth_Icon.png"),
+	Element.AIR: preload("res://UI/Sprites/Air_Icon.png"),
+	Element.LIGHT: preload("res://UI/Sprites/Light_Icon.png"),
+	Element.DARK: preload("res://UI/Sprites/Dark_Icon.png"),
+	Element.JUNK: preload("res://UI/Sprites/Junk_Icon.png"),
 }

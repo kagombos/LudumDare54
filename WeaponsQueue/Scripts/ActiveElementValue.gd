@@ -9,6 +9,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if ElementUtils.ElementToIcon.has(owner.activeElement):
-		texture = ImageTexture.create_from_image(ElementUtils.ElementToIcon[owner.activeElement])
+		texture = ElementUtils.ElementToIcon[owner.activeElement]
 	else:
 		texture = null
