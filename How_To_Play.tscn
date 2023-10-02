@@ -1,0 +1,97 @@
+[gd_scene load_steps=10 format=3 uid="uid://cvvctnqx4jof7"]
+
+[ext_resource type="Script" path="res://UI/Scripts/HowToPlay.gd" id="1_kihyk"]
+[ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_8ndad"]
+[ext_resource type="Texture2D" uid="uid://bfh3ratfuo465" path="res://UI/Sprites/Fire_Icon.png" id="3_x0xch"]
+[ext_resource type="Texture2D" uid="uid://bx54jmvvx66sc" path="res://UI/Sprites/Water_Icon.png" id="4_nldii"]
+[ext_resource type="Texture2D" uid="uid://bgbc56utw85ow" path="res://UI/Sprites/Earth_Icon.png" id="5_sx7ia"]
+[ext_resource type="Texture2D" uid="uid://j5ag5tjop1b7" path="res://UI/Sprites/Air_Icon.png" id="6_rabo5"]
+[ext_resource type="Texture2D" uid="uid://bvq20744mjdcu" path="res://UI/Sprites/Light_Icon.png" id="7_5ajc7"]
+[ext_resource type="Texture2D" uid="uid://bx3000nc5jfvq" path="res://UI/Sprites/Dark_Icon.png" id="8_d8cgx"]
+[ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="9_flb6p"]
+
+[node name="ColorRect" type="ColorRect"]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_kihyk")
+
+[node name="HowToPlay" type="Button" parent="."]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 280.0
+offset_bottom = 97.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "Return"
+icon = ExtResource("2_8ndad")
+icon_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 150.0
+offset_right = 1250.0
+offset_bottom = 750.0
+scale = Vector2(1.5, 1.5)
+text = "This is a read-only explanation of the controls. If you would rather play a tutorial use the \"Practice Drawing\" button
+on the main menu.
+
+Your ship will always follow the mouse exactly. Also looking in the direction you moved last. If you wish to lock your rotation. Hold the Right Mouse Button.
+
+In order to damage enemies you need to cast spells. You can cast spells by drawing the corrosponding letters using the Left Mouse Button. Once you release the Left Mouse Button your Spellbook will check your letter and assign a spell to your queue. Spells are cast automatically from your queue. Sometimes you think you've drawn the correct letter and it doesn't match. Don't worry this is \"Wild Magic\" and won't happen all the time. Nothing is perfect when casting spells from a space-ship.
+
+After defeating enough enemies your ship will spawn some upgrades. You can pick one upgrade for a spell after that the other upgrades will disappear. Spells can be upgraded in one of three ways:
+
+Star: Improves your spells overall power        Broken Shield: Improves your spells penetration             Bolt: Improves your spell's casting rate
+
+
+Additionally here is a quick rundown of the spells:
+
+Fire: Damage over Time flamethrower                    Water: Healing over Time                   Earth: Orbiting Meteors
+
+
+Air: Damage over Time Tornado                   Light: Fast Firing Homing Shots                 Dark: Ramming Shield
+
+
+Junk: A Miscast Spell"
+
+[node name="Sprite2D" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(336.667, 426.667)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_x0xch")
+
+[node name="Sprite2D2" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(608.667, 426.667)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_nldii")
+
+[node name="Sprite2D3" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(879.333, 426.667)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_sx7ia")
+
+[node name="Sprite2D4" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(285, 493.333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_rabo5")
+
+[node name="Sprite2D5" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(595, 493.333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_5ajc7")
+
+[node name="Sprite2D6" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(840, 493.333)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_d8cgx")
+
+[node name="Sprite2D7" type="Sprite2D" parent="RichTextLabel"]
+position = Vector2(191.333, 562)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("9_flb6p")
+
+[connection signal="button_up" from="HowToPlay" to="." method="main_menu"]
