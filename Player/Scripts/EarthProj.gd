@@ -42,9 +42,10 @@ func _physics_process(delta):
 		
 func despawn():
 	var particles = $DeathParticles
-	remove_child(particles)
-	particles.position = position
-	add_sibling(particles)
-	particles.visible = true
-	particles.restart()
-	queue_free()
+	if particles != null:
+		remove_child(particles)
+		particles.position = position
+		add_sibling(particles)
+		particles.visible = true
+		particles.restart()
+		queue_free()

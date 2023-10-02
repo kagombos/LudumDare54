@@ -26,8 +26,8 @@ var turretCD = -1
 var spawning = true
 
 func _ready():
-	var resistSelection = randf_range(0, 1000)
-	if resistSelection <= resistChance:
+	var resistSelection = randf_range(0, 100)
+	if resistSelection <= level:
 		ResistanceTypes[Element.FIRE] = 0.1
 		ResistanceTypes[Element.EARTH] = 0.1
 		ResistanceTypes[Element.LIGHT] = 0.1
@@ -47,7 +47,7 @@ func _ready():
 			ResistanceTypes[Element.LIGHT] = 1
 			$TurretBase.texture = preload("res://Enemies/Sprites/ufoYellow.png")
 			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitYellow_3.png")
-	maxHP = maxHP * ((level)*0.2+1)
+	maxHP = maxHP * ((level)*0.2+0.8)
 	HP = maxHP
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

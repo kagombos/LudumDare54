@@ -18,7 +18,7 @@ var rotation_locked
 
 
 @export var XP = 0
-var levelThreshold = 60
+var levelThreshold = 50
 
 var end_game = false
 var end_game_timer = 2
