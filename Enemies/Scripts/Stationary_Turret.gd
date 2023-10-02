@@ -47,7 +47,7 @@ func _ready():
 			ResistanceTypes[Element.LIGHT] = 1
 			$TurretBase.texture = preload("res://Enemies/Sprites/ufoYellow.png")
 			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitYellow_3.png")
-	maxHP = maxHP * (level+1)
+	maxHP = maxHP * ((level)*0.2+1)
 	HP = maxHP
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
