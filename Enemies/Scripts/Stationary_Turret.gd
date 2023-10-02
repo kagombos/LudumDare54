@@ -1,5 +1,6 @@
 extends	Area2D
 
+
 @export var bullet = preload("res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn")
 
 @export var fireRate = 1
@@ -61,5 +62,7 @@ func _process(delta):
 		add_sibling(bullet_instance)
 	$TurretBase/TurretAim/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
 	if HP <= 0:
-		#replace this with death code
+		get_tree().get_nodes_in_group("Player")[0].XP += 10
+		if ResistanceTypes[Element.JUNK] == 0:
+			get_tree().get_nodes_in_group("Player")[0].XP += 20
 		queue_free()

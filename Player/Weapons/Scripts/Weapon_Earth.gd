@@ -17,4 +17,6 @@ func run_weapon(delta):
 			var earth_proj = earth_proj_prefab.instantiate()
 			earth_proj.rotation_degrees = rotation_degrees + 72*i
 			earth_proj.position = earth_proj.transform.x * 20
+			earth_proj.damage = power
+			earth_proj.pierce = pierce
 			add_child(earth_proj)

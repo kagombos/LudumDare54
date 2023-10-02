@@ -28,13 +28,13 @@ func run_weapon(delta):
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && $FireCone.scale.x > 0.01:
 		for i in bodies:
-			i.HP -= 10*delta*i.ResistanceTypes[Element.FIRE]
+			i.HP -= power*delta*(i.ResistanceTypes[Element.FIRE]+pierce)
 	
 	var areas = $FireCone.get_overlapping_areas()
 	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
 	if areas && $FireCone.scale.x > 0.01:
 		for i in areas:
-			i.HP -= 10*delta*i.ResistanceTypes[Element.FIRE]
+			i.HP -= power*delta*(i.ResistanceTypes[Element.FIRE]+pierce)
 
 func wind_down_weapon(delta):
 	if $FireCone.scale.x > 0.01:

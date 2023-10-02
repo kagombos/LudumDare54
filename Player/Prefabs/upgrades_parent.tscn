@@ -1,0 +1,84 @@
+[gd_scene load_steps=14 format=3 uid="uid://cb3abwj6vuhp5"]
+
+[ext_resource type="Script" path="res://Player/Scripts/Water_Upgrade.gd" id="1_8yuud"]
+[ext_resource type="Texture2D" uid="uid://c7xyf7smqjfhw" path="res://Player/Sprites/powerupBlue.png" id="2_3d7o5"]
+[ext_resource type="Script" path="res://Player/Scripts/Earth_Upgrade.gd" id="3_kvv2p"]
+[ext_resource type="Texture2D" uid="uid://dhqsg5fwyay31" path="res://Player/Sprites/powerupGreen.png" id="4_4asjb"]
+[ext_resource type="Script" path="res://Player/Scripts/Fire_Upgrade.gd" id="5_yqe3e"]
+[ext_resource type="Texture2D" uid="uid://c4xhdphrk06ch" path="res://Player/Sprites/powerupRed.png" id="6_nroxu"]
+[ext_resource type="Script" path="res://Player/Scripts/Light_Upgrade.gd" id="7_v66yw"]
+[ext_resource type="Texture2D" uid="uid://bwbqcefbm351d" path="res://Player/Sprites/powerupYellow.png" id="8_xxiku"]
+[ext_resource type="Script" path="res://Player/Scripts/Air_Upgrade.gd" id="9_g37kc"]
+[ext_resource type="Texture2D" uid="uid://b0ev2ts8r48hu" path="res://Player/Sprites/powerupWhite.png" id="10_vux6f"]
+[ext_resource type="Script" path="res://Player/Scripts/Dark_Upgrade.gd" id="11_l5lr5"]
+[ext_resource type="Texture2D" uid="uid://dyjkabccbjuwh" path="res://Player/Sprites/powerupBlack.png" id="12_exqt0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g3tty"]
+
+[node name="Upgrades_Parent" type="Node2D"]
+
+[node name="Water_Upgrade" type="Area2D" parent="."]
+position = Vector2(200, 100)
+script = ExtResource("1_8yuud")
+
+[node name="Sprite2D" type="Sprite2D" parent="Water_Upgrade"]
+texture = ExtResource("2_3d7o5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")
+
+[node name="Earth_Upgrade" type="Area2D" parent="."]
+position = Vector2(200, -100)
+script = ExtResource("3_kvv2p")
+
+[node name="Sprite2D" type="Sprite2D" parent="Earth_Upgrade"]
+texture = ExtResource("4_4asjb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Earth_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")
+
+[node name="Fire_Upgrade" type="Area2D" parent="."]
+position = Vector2(0, -200)
+script = ExtResource("5_yqe3e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Fire_Upgrade"]
+texture = ExtResource("6_nroxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")
+
+[node name="Light_Upgrade" type="Area2D" parent="."]
+position = Vector2(-200, -100)
+script = ExtResource("7_v66yw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light_Upgrade"]
+texture = ExtResource("8_xxiku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")
+
+[node name="Air_Upgrade" type="Area2D" parent="."]
+position = Vector2(-200, 100)
+script = ExtResource("9_g37kc")
+
+[node name="Sprite2D" type="Sprite2D" parent="Air_Upgrade"]
+texture = ExtResource("10_vux6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Air_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")
+
+[node name="Dark_Upgrade" type="Area2D" parent="."]
+position = Vector2(0, 200)
+script = ExtResource("11_l5lr5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark_Upgrade"]
+texture = ExtResource("12_exqt0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark_Upgrade"]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_g3tty")

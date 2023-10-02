@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var ElementToScene
 
 var activeElement = Element.NONE
@@ -15,11 +16,10 @@ var rotation_locked
 @export var maxHP = 500.0
 @export var HP = 500.0
 
-@export var lightFireRate = 0.5
-@export var earthFireRate = 2
 
-var lightCD = 0
-var earthCD = 0
+@export var XP = 0
+var levelThreshold = 60
+
 
 func _ready():
 	HP = maxHP
@@ -68,9 +68,14 @@ func _physics_process(delta):
 	if ElementToScene.has(activeElement):
 		ElementToScene[activeElement].active = true
 
+	if XP >= levelThreshold:
+		XP -= levelThreshold
+		levelThreshold *= 1.1
+		$Upgrade_Spawner.level_up()
 	if HP <= 0:
 		#replace this with game over code
 		get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
+	
