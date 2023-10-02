@@ -5,8 +5,6 @@ var ElementToScene
 
 var activeElement = Element.NONE
 
-var earthActive = false
-var lightActive = false
 var darkActive = false
 var darkHP = 500.0
 
@@ -77,7 +75,7 @@ func _physics_process(delta):
 			XP -= levelThreshold
 			levelThreshold *= 1.1
 			$Upgrade_Spawner.level_up()
-		if activeElement == Element.DARK:
+		if darkActive:
 			if HP < darkHP:
 				HP = darkHP
 			else:

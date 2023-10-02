@@ -9,11 +9,13 @@ func start_weapon():
 	$DarkCollision/DarkShield.play("default")
 	$DarkCollision.scale = Vector2.ONE
 	owner.darkHP = owner.HP
+	owner.darkActive = true
 	$AudioShield.play()
 	
 func stop_weapon():
 	$DarkCollision/DarkShield.stop()
 	$DarkCollision.scale = Vector2.ZERO
+	owner.darkActive = false
 	$AudioShield.stop()
 
 func run_weapon(delta):
