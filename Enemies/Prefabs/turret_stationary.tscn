@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbtjlt5bk1rwp"]
+[gd_scene load_steps=12 format=3 uid="uid://bbtjlt5bk1rwp"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Stationary_Turret.gd" id="1_sw0ac"]
 [ext_resource type="Texture2D" uid="uid://drep6tcik7egy" path="res://Enemies/Sprites/ufoBlue.png" id="2_ihfb5"]
@@ -6,8 +6,27 @@
 [ext_resource type="Script" path="res://Enemies/Scripts/TurretAim.gd" id="4_vk0vu"]
 [ext_resource type="Texture2D" uid="uid://bbo6ce07lfiwp" path="res://Enemies/Sprites/Turret_HP_Empty.png" id="5_6byaq"]
 [ext_resource type="Texture2D" uid="uid://dtes3kpsic60" path="res://Enemies/Sprites/Turret_HP_Indicator.png" id="6_0be2y"]
+[ext_resource type="Texture2D" path="res://Player/Sprites/star_medium.png" id="7_g0ccp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_t3jag"]
+
+[sub_resource type="Gradient" id="Gradient_45g47"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_40r8s"]
+gradient = SubResource("Gradient_45g47")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_y3lr2"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 0.7
+damping_max = 0.9
+color_ramp = SubResource("GradientTexture1D_40r8s")
 
 [node name="Turret_Stationary" type="Area2D" groups=["Enemy"]]
 position = Vector2(384, 448)
@@ -38,3 +57,13 @@ offset = Vector2(20, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(4.5, 4.5)
 shape = SubResource("CircleShape2D_t3jag")
+
+[node name="DeathParticles" type="GPUParticles2D" parent="."]
+visible = false
+z_index = -1
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_y3lr2")
+texture = ExtResource("7_g0ccp")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
