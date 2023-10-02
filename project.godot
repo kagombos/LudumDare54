@@ -19,6 +19,7 @@ config/icon="res://UI/Sprites/playerShip1_green.png"
 
 ElementUtils="*res://Global/element_utils.gd"
 MusicPlayer="*res://Global/music_player.tscn"
+SaveSystem="*res://Global/save_system.gd"
 
 [display]
 

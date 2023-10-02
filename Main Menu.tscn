@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dargq3wge1sst"]
+[gd_scene load_steps=8 format=3 uid="uid://dargq3wge1sst"]
 
 [ext_resource type="Script" path="res://UI/Scripts/MainMenu.gd" id="1_uhxdy"]
 [ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_06q5w"]
 [ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="3_5s01i"]
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="4_xeaw3"]
 [ext_resource type="Texture2D" uid="uid://cuq16c21v1lqe" path="res://UI/Sprites/TitleSplash.png" id="5_44trp"]
+[ext_resource type="Script" path="res://UI/Scripts/HighScore.gd" id="6_o5d06"]
+
+[sub_resource type="Theme" id="Theme_8h7b7"]
+default_font_size = 32
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uhxdy")
@@ -103,6 +107,14 @@ position = Vector2(1295, 228)
 rotation = 0.139626
 scale = Vector2(2, 2)
 texture = ExtResource("5_44trp")
+
+[node name="HighScore" type="RichTextLabel" parent="."]
+offset_left = 136.0
+offset_top = 256.0
+offset_right = 544.0
+offset_bottom = 436.0
+theme = SubResource("Theme_8h7b7")
+script = ExtResource("6_o5d06")
 
 [connection signal="button_up" from="StartGame" to="." method="start_game"]
 [connection signal="button_up" from="HowToPlay" to="." method="how_play"]
