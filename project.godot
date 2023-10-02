@@ -18,6 +18,7 @@ config/icon="res://UI/Sprites/playerShip1_green.png"
 [autoload]
 
 ElementUtils="*res://Global/element_utils.gd"
+MusicPlayer="*res://Global/music_player.tscn"
 
 [display]
 

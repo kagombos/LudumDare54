@@ -90,6 +90,7 @@ func _physics_process(delta):
 		end_game_timer -= delta
 		if end_game_timer <= 0:
 			get_tree().change_scene_to_file("res://Main Menu.tscn")
+			MusicPlayer.get_node("GameMusic").stop()
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
