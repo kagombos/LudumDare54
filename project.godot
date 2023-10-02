@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Ludum Dare 54"
+config/name="Cosmic Caster"
 run/main_scene="res://Main Menu.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://UI/Sprites/playerShip1_green.png"
 
 [autoload]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqhe4j35hq72c"]
+[gd_scene load_steps=6 format=3 uid="uid://dqhe4j35hq72c"]
 
 [ext_resource type="Script" path="res://UI/Scripts/MainMenu.gd" id="1_uhxdy"]
 [ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_06q5w"]
 [ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="3_5s01i"]
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="4_xeaw3"]
+[ext_resource type="Texture2D" uid="uid://cuq16c21v1lqe" path="res://UI/Sprites/TitleSplash.png" id="5_44trp"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uhxdy")
@@ -67,22 +68,28 @@ icon = ExtResource("2_06q5w")
 icon_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1109, 731)
+position = Vector2(1081, 885)
 rotation = -1.04196
 scale = Vector2(3, 3)
 texture = ExtResource("3_5s01i")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(1109, 211)
+position = Vector2(968, 457)
 rotation = -4.88518
 scale = Vector2(3, 3)
 texture = ExtResource("4_xeaw3")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(1638, 492)
+position = Vector2(1591, 713)
 rotation = 2.63719
 scale = Vector2(3, 3)
 texture = ExtResource("4_xeaw3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(1295, 228)
+rotation = 0.139626
+scale = Vector2(2, 2)
+texture = ExtResource("5_44trp")
 
 [connection signal="button_up" from="StartGame" to="." method="start_game"]
 [connection signal="button_up" from="HowToPlay" to="." method="how_play"]
