@@ -29,3 +29,12 @@ var ElementToColor = {
 	Element.DARK: Color(0.2, 0.1, 0.5),
 	Element.JUNK: Color(255, 255, 255)
 }
+
+var ElementToIcon = {
+	Element.FIRE: Image.load_from_file("res://UI/Sprites/Fire_Icon.png"),
+	Element.WATER: Image.load_from_file("res://UI/Sprites/Water_Icon.png"),
+	Element.EARTH: Image.load_from_file("res://UI/Sprites/Earth_Icon.png"),
+	Element.AIR: Image.load_from_file("res://UI/Sprites/Air_Icon.png"),
+	Element.LIGHT: Image.load_from_file("res://UI/Sprites/Light_Icon.png"),
+	Element.DARK: Image.load_from_file("res://UI/Sprites/Dark_Icon.png"),
+}

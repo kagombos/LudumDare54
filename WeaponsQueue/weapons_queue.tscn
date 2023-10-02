@@ -21,16 +21,13 @@ offset_right = 152.0
 offset_bottom = 77.0
 text = "Element Queue:"
 
-[node name="ActiveElementValue" type="RichTextLabel" parent="."]
-offset_left = 150.0
-offset_top = 16.0
-offset_right = 438.0
-offset_bottom = 54.0
-script = ExtResource("2_vosqw")
-
 [node name="ElementQueueValue" type="RichTextLabel" parent="."]
 offset_left = 150.0
 offset_top = 48.0
 offset_right = 438.0
 offset_bottom = 86.0
 script = ExtResource("3_3x1r4")
+
+[node name="ActiveElementSprite" type="Sprite2D" parent="."]
+position = Vector2(168, 32)
+script = ExtResource("2_vosqw")
