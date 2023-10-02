@@ -30,9 +30,9 @@ icon_alignment = 1
 
 [node name="HowToPlay" type="Button" parent="."]
 offset_left = 110.0
-offset_top = 350.0
+offset_top = 325.0
 offset_right = 340.0
-offset_bottom = 397.0
+offset_bottom = 372.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
@@ -43,9 +43,9 @@ icon_alignment = 1
 
 [node name="Tutorial" type="Button" parent="."]
 offset_left = 110.0
-offset_top = 350.0
+offset_top = 500.0
 offset_right = 340.0
-offset_bottom = 397.0
+offset_bottom = 547.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
@@ -56,9 +56,9 @@ icon_alignment = 1
 
 [node name="Practice" type="Button" parent="."]
 offset_left = 110.0
-offset_top = 650.0
+offset_top = 675.0
 offset_right = 340.0
-offset_bottom = 697.0
+offset_bottom = 722.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
