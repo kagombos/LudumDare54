@@ -56,6 +56,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("3_hycri")]
 enemy_prefab = ExtResource("6_yl35p")
+waveRate = 7.0
 waveGrowth = 1
 
 [node name="SpawnSound" type="AudioStreamPlayer" parent="Enemy Spawner"]
