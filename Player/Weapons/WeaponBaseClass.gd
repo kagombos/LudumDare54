@@ -7,6 +7,8 @@ var winding_down = false
 
 @export var physics_weapon = true
 @export_range(0, 100, 0.1) var fireRate: float = 0
+@export var power = 1.0
+@export var pierce = 0.0
 
 func _process(delta):
 	process(delta)

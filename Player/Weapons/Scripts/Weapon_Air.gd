@@ -14,4 +14,6 @@ func run_weapon(delta):
 		var air_proj = air_proj_prefab.instantiate()
 		air_proj.position = owner.position
 		air_proj.rotation = -owner.rotation
+		air_proj.damage = power
+		air_proj.pierce = pierce
 		owner.add_sibling(air_proj)

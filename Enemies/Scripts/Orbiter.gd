@@ -1,5 +1,6 @@
 extends RigidBody2D
 
+
 @export var bullet = preload("res://Enemies/Prefabs/Projectiles/turret_laser_1.tscn")
 
 @export var fireRate = 1
@@ -76,7 +77,9 @@ func _physics_process(delta):
 		bullet_instance.rotation = rotation
 		add_sibling(bullet_instance)
 	if HP <= 0:
-		#replace this with dewth code
+		get_tree().get_nodes_in_group("Player")[0].XP += 10
+		if ResistanceTypes[Element.JUNK] == 0:
+			get_tree().get_nodes_in_group("Player")[0].XP += 20
 		queue_free()
 		
 

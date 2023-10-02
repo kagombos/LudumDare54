@@ -7,7 +7,7 @@ var particleCD = fireRate
 func run_weapon(delta):
 	if owner.HP < owner.maxHP:
 		particleCD+=delta
-		owner.HP += delta*10
+		owner.HP += delta*power
 		if owner.HP > owner.maxHP:
 			owner.HP = owner.maxHP
 		if particleCD >= fireRate:
