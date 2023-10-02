@@ -68,7 +68,7 @@ explosiveness = 1.0
 [node name="AudioDeath" type="AudioStreamPlayer" parent="DeathParticles"]
 stream = ExtResource("6_myxyi")
 
-[node name="AudioCollison" type="AudioStreamPlayer" parent="."]
+[node name="AudioCollision" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_d8oq2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
