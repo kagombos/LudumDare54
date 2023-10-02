@@ -28,6 +28,7 @@ func _process(delta):
 	if spawnCD >= spawnRate:
 		spawnCD -= spawnRate
 		var enemy_instance = enemy_prefab.instantiate()
+		$SpawnSound.play()
 		var enemyX = randf_range(minSpawnDist, maxSpawnDist)
 		var enemyY = randf_range(minSpawnDist, maxSpawnDist) 
 		enemy_instance.position = get_global_mouse_position()+Vector2(enemyX*(-1 +2*randi_range(0, 1)), enemyY*(-1 +2*randi_range(0, 1)))
