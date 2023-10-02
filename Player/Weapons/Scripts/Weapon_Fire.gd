@@ -35,17 +35,21 @@ func run_weapon(delta):
 	if areas && $FireCone.scale.x > 0.01:
 		for i in areas:
 			i.HP -= power*delta*(i.ResistanceTypes[Element.FIRE]+pierce)
+	$AudioFire.set_volume_db(-24 + 24 * $FireCone.scale.x)
 
 func wind_down_weapon(delta):
 	if $FireCone.scale.x > 0.01:
 		shrink_flames(delta)
+		$AudioFire.set_volume_db(-24 + 24 * $FireCone.scale.x)
 	else:
+		$AudioFire.stop()
 		winding_down = false
 		$FireCone.set_process(false)
 
 func start_weapon():
 	winding_down = false
 	$FireCone.set_process(true)
+	$AudioFire.play()
 
 func stop_weapon():
 	winding_down = true
