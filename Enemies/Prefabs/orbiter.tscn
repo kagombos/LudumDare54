@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="2_lhjtc"]
 [ext_resource type="Texture2D" uid="uid://b7x7e1qobih3x" path="res://Enemies/Sprites/Orbiter_HP_Empty.png" id="3_frkby"]
 [ext_resource type="Texture2D" uid="uid://csppl4rttdrnp" path="res://Enemies/Sprites/Orbiter_HP_Indicator.png" id="4_3l0g1"]
-[ext_resource type="Texture2D" path="res://Player/Sprites/star_medium.png" id="5_v6f1y"]
+[ext_resource type="Texture2D" uid="uid://dq7pdtxkk2vir" path="res://Player/Sprites/star_medium.png" id="5_v6f1y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seikd"]
 

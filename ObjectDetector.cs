@@ -129,7 +129,7 @@ public partial class ObjectDetector : Node
 
 		int prediction = predictCharacter(byteArray);
 
-		var text = GetNode<RichTextLabel>("DebugText");
+		var text = node.GetNode<RichTextLabel>("DebugText");
 		text.Text = "Detected Letter: " + ((char) (65 + prediction));
 		EmitSignal("ObjectDetected", prediction);
 	}
