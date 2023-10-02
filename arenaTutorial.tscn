@@ -1,0 +1,197 @@
+[gd_scene load_steps=20 format=3 uid="uid://bkweeax2krepq"]
+
+[ext_resource type="Script" path="res://SetCursor.gd" id="1_hl4ot"]
+[ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_lmnsj"]
+[ext_resource type="Script" path="res://TrailControl.gd" id="3_8gtwi"]
+[ext_resource type="Script" path="res://ObjectDetector.cs" id="4_up4uc"]
+[ext_resource type="Script" path="res://DebugDisplay.gd" id="5_u5i0h"]
+[ext_resource type="Texture2D" uid="uid://bfh3ratfuo465" path="res://UI/Sprites/Fire_Icon.png" id="6_0vg7o"]
+[ext_resource type="Texture2D" uid="uid://j5ag5tjop1b7" path="res://UI/Sprites/Air_Icon.png" id="7_5hdbr"]
+[ext_resource type="Texture2D" uid="uid://bx3000nc5jfvq" path="res://UI/Sprites/Dark_Icon.png" id="8_brk2d"]
+[ext_resource type="Texture2D" uid="uid://bgbc56utw85ow" path="res://UI/Sprites/Earth_Icon.png" id="9_d4cop"]
+[ext_resource type="Texture2D" uid="uid://bvq20744mjdcu" path="res://UI/Sprites/Light_Icon.png" id="10_rtcp4"]
+[ext_resource type="Texture2D" uid="uid://bx54jmvvx66sc" path="res://UI/Sprites/Water_Icon.png" id="11_k60si"]
+[ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="12_kkk7b"]
+[ext_resource type="PackedScene" uid="uid://c5k766c46o5rr" path="res://WeaponsQueue/weapons_queue.tscn" id="13_x23vf"]
+[ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="14_tas1u"]
+[ext_resource type="PackedScene" uid="uid://ker160qp412q" path="res://Tutorial/Tutorial1.tscn" id="15_khrci"]
+[ext_resource type="Script" path="res://Tutorial/TutorialController.gd" id="16_6wde8"]
+
+[sub_resource type="Gradient" id="Gradient_tkdir"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.721569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3eaj"]
+gradient = SubResource("Gradient_tkdir")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lm0lg"]
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 0)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.75
+color_ramp = SubResource("GradientTexture1D_r3eaj")
+
+[node name="Node2D2" type="Node2D"]
+script = ExtResource("1_hl4ot")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -100
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Player" parent="." instance=ExtResource("2_lmnsj")]
+
+[node name="TrailControlLeft" type="Node2D" parent="."]
+z_index = -2
+script = ExtResource("3_8gtwi")
+lineWidth = 5
+
+[node name="ObjectDetector" type="Node2D" parent="TrailControlLeft"]
+script = ExtResource("4_up4uc")
+
+[node name="DebugDisplay" type="Node2D" parent="TrailControlLeft/ObjectDetector"]
+position = Vector2(1833, 106)
+script = ExtResource("5_u5i0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 100)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_0vg7o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D"]
+offset_left = -136.0
+offset_top = -48.0
+offset_right = -85.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "L="
+
+[node name="Sprite2D2" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 130)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_5hdbr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D2"]
+offset_left = -136.0
+offset_top = -48.0
+offset_right = -85.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "Z="
+
+[node name="Sprite2D3" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 160)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("8_brk2d")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D3"]
+offset_left = -140.0
+offset_top = -48.0
+offset_right = -89.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "C="
+
+[node name="Sprite2D4" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 190)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("9_d4cop")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D4"]
+offset_left = -136.0
+offset_top = -48.0
+offset_right = -85.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "T="
+
+[node name="Sprite2D5" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 220)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("10_rtcp4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D5"]
+offset_left = -156.0
+offset_top = -48.0
+offset_right = -105.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "M="
+
+[node name="Sprite2D6" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 250)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_k60si")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D6"]
+offset_left = -140.0
+offset_top = -48.0
+offset_right = -89.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "A="
+
+[node name="Sprite2D7" type="Sprite2D" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+position = Vector2(40, 280)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_kkk7b")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay/Sprite2D7"]
+offset_left = -512.0
+offset_top = -48.0
+offset_right = -367.0
+offset_bottom = -24.0
+scale = Vector2(4, 4)
+text = "Anything else="
+
+[node name="DebugText" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector/DebugDisplay"]
+offset_left = -125.0
+offset_top = 300.0
+offset_right = 54.0
+offset_bottom = 327.0
+text = "Detected Letter: None"
+
+[node name="WeaponsQueue" parent="." instance=ExtResource("13_x23vf")]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -10
+position = Vector2(1160, 540)
+amount = 240
+process_material = SubResource("ParticleProcessMaterial_lm0lg")
+texture = ExtResource("14_tas1u")
+lifetime = 120.0
+preprocess = 120.0
+
+[node name="Tutorial1" parent="." instance=ExtResource("15_khrci")]
+z_index = 10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 704.0
+offset_top = 412.0
+offset_right = 1216.0
+offset_bottom = 668.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TutorialController" type="Node2D" parent="."]
+script = ExtResource("16_6wde8")
+
+[connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="TrailControlLeft" method="_on_object_detector_object_detected"]
+[connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="WeaponsQueue" method="_on_object_detector_object_detected"]
+[connection signal="element_activated" from="WeaponsQueue" to="Player" method="_on_weapons_queue_element_activated"]

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ker160qp412q"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 200.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 256.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 248.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect/ColorRect"]
+offset_left = 152.0
+offset_top = 152.0
+offset_right = 344.0
+offset_bottom = 208.0
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect/TextureButton"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 56.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect/TextureButton/ColorRect"]
+layout_mode = 0
+offset_right = 192.0
+offset_bottom = 56.0
+text = "Continue"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 120.0
+text = "Welcome to the cosmic caster tutorial!"
+horizontal_alignment = 1
+vertical_alignment = 1
