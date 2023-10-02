@@ -14,10 +14,9 @@ func how_play():
 	get_tree().change_scene_to_file("res://How_To_Play.tscn")
 
 func tutorial():
-	#get_tree().change_scene_to_file("res://tutorial.tscn")
-	#MusicPlayer.get_node("GameMusic").play()
-	#MusicPlayer.get_node("MenuMusic").stop()
-	pass
+	get_tree().change_scene_to_file("res://arenaTutorial.tscn")
+	MusicPlayer.get_node("GameMusic").play()
+	MusicPlayer.get_node("MenuMusic").stop()
 
 func practice():
 	get_tree().change_scene_to_file("res://arenaPractice.tscn")

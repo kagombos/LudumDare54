@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cb3abwj6vuhp5"]
+[gd_scene load_steps=15 format=3 uid="uid://cdvbe6pedgy0t"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Water_Upgrade.gd" id="1_8yuud"]
 [ext_resource type="Script" path="res://Player/Scripts/upgrades_parent.gd" id="1_fra5i"]

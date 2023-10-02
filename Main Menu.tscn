@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqhe4j35hq72c"]
+[gd_scene load_steps=6 format=3 uid="uid://dargq3wge1sst"]
 
 [ext_resource type="Script" path="res://UI/Scripts/MainMenu.gd" id="1_uhxdy"]
 [ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_06q5w"]
@@ -106,5 +106,6 @@ texture = ExtResource("5_44trp")
 
 [connection signal="button_up" from="StartGame" to="." method="start_game"]
 [connection signal="button_up" from="HowToPlay" to="." method="how_play"]
+[connection signal="button_up" from="Tutorial" to="." method="tutorial"]
 [connection signal="button_up" from="Practice" to="." method="practice"]
 [connection signal="button_up" from="Exit" to="." method="quit"]
