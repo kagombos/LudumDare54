@@ -8,10 +8,12 @@ func _ready():
 func start_weapon():
 	$DarkCollision/DarkShield.play("default")
 	$DarkCollision.scale = Vector2.ONE
+	$AudioShield.play()
 	
 func stop_weapon():
 	$DarkCollision/DarkShield.stop()
 	$DarkCollision.scale = Vector2.ZERO
+	$AudioShield.stop()
 
 func run_weapon(delta):
 	var bodies = $DarkCollision.get_overlapping_bodies()

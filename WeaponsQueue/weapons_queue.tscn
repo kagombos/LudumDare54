@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5k766c46o5rr"]
+[gd_scene load_steps=5 format=3 uid="uid://c5k766c46o5rr"]
 
 [ext_resource type="Script" path="res://WeaponsQueue/Scripts/WeaponsQueue.gd" id="1_vp4ow"]
 [ext_resource type="Script" path="res://WeaponsQueue/Scripts/ActiveElementValue.gd" id="2_vosqw"]
 [ext_resource type="Script" path="res://WeaponsQueue/Scripts/ElementQueueValue.gd" id="3_3x1r4"]
+[ext_resource type="Texture2D" uid="uid://b7scl02vn7ubq" path="res://UI/Sprites/Element_Bar.png" id="5_sghcp"]
 
 [node name="WeaponsQueue" type="Node2D"]
 script = ExtResource("1_vp4ow")
@@ -14,3 +15,8 @@ script = ExtResource("3_3x1r4")
 position = Vector2(50, 50)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("2_vosqw")
+
+[node name="Element_Bar" type="Sprite2D" parent="ActiveElementSprite"]
+position = Vector2(-50, 70)
+texture = ExtResource("5_sghcp")
+offset = Vector2(50, 0)
