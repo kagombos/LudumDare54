@@ -39,18 +39,20 @@ func _physics_process(delta):
 	if bodies && scale.x > 0.01:
 		bodies[0].HP -= damage*(bodies[0].ResistanceTypes[Element.LIGHT]+pierce)
 		var particles = $GPUParticles2D
-		remove_child(particles)
-		particles.position = position
-		particles.emitting = false
-		get_parent().add_child(particles)
+		if particles:
+			remove_child(particles)
+			particles.position = position
+			particles.emitting = false
+			get_parent().add_child(particles)
 		queue_free()
 	var areas = get_overlapping_areas()
 	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
 	if areas && scale.x > 0.01:
 		areas[0].HP -= damage*(areas[0].ResistanceTypes[Element.LIGHT]+pierce)
 		var particles = $GPUParticles2D
-		remove_child(particles)
-		particles.position = position
-		particles.emitting = false
-		get_parent().add_child(particles)
+		if particles:
+			remove_child(particles)
+			particles.position = position
+			particles.emitting = false
+			get_parent().add_child(particles)
 		queue_free()
