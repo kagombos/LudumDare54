@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=20 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
@@ -17,6 +17,21 @@
 [ext_resource type="Texture2D" uid="uid://bx54jmvvx66sc" path="res://UI/Sprites/Water_Icon.png" id="12_5kdqf"]
 [ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="13_qnyhq"]
 [ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="17_lxc25"]
+[ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="18_67mve"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lm0lg"]
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 0)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.75
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8emuj")
@@ -160,6 +175,15 @@ stream = ExtResource("4_kkrmn")
 stream = ExtResource("17_lxc25")
 volume_db = -15.0
 autoplay = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -10
+position = Vector2(1160, 540)
+amount = 240
+process_material = SubResource("ParticleProcessMaterial_lm0lg")
+texture = ExtResource("18_67mve")
+lifetime = 120.0
+preprocess = 120.0
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
