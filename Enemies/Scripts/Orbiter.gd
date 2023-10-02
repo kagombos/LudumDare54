@@ -80,9 +80,10 @@ func _physics_process(delta):
 		bullet_instance.rotation = rotation
 		add_sibling(bullet_instance)
 	if HP <= 0:
-		get_tree().get_nodes_in_group("Player")[0].XP += 10
+		var player = get_tree().get_nodes_in_group("Player")[0]
+		player.addXP(10)
 		if ResistanceTypes[Element.JUNK] == 0:
-			get_tree().get_nodes_in_group("Player")[0].XP += 20
+			player.addXP(20)
 		var particles = $DeathParticles
 		remove_child(particles)
 		particles.position = position
@@ -99,7 +100,9 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		body.HP -= 3.5
-		$AudioCollision.play()
+		if $AudioCollision != null:
+			$AudioCollision.play()
 		
 func play_collision():
-	$AudioCollision.play()
+	if $AudioCollision != null:
+		$AudioCollision.play()

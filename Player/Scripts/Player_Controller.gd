@@ -16,6 +16,7 @@ var rotation_locked
 
 
 @export var XP = 0
+@export var cumulativeXP = 0
 var levelThreshold = 50
 
 var end_game = false
@@ -94,6 +95,10 @@ func _physics_process(delta):
 		if end_game_timer <= 0:
 			get_tree().change_scene_to_file("res://Main Menu.tscn")
 			MusicPlayer.get_node("GameMusic").stop()
+
+func addXP(xp):
+	XP += xp
+	cumulativeXP += xp
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
