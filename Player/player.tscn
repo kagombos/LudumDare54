@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://de32w2gha1wwq"]
+[gd_scene load_steps=22 format=3 uid="uid://de32w2gha1wwq"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Player_Controller.gd" id="1_bktj5"]
 [ext_resource type="Texture2D" uid="uid://ch5egcgabyovk" path="res://Player/Sprites/playerShip1_green.png" id="2_jyicx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bdoc8wg0sjnwa" path="res://Player/Sprites/Health Bar.png" id="4_ydd8v"]
 [ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Water.gd" id="5_csox7"]
 [ext_resource type="PackedScene" uid="uid://dbkjrydd85t84" path="res://Player/Weapons/weapon_light.tscn" id="6_qmsun"]
+[ext_resource type="AudioStream" uid="uid://baf2ryi1yai5b" path="res://Audio/water_regen.wav" id="8_3bl1f"]
 [ext_resource type="PackedScene" uid="uid://22fum8rfkfu6" path="res://Player/Weapons/weapon_dark.tscn" id="8_gk67t"]
 [ext_resource type="PackedScene" uid="uid://c2v0rlkfrkg45" path="res://Player/Weapons/weapon_fire.tscn" id="9_h6nn1"]
 [ext_resource type="PackedScene" path="res://Player/Weapons/weapon_earth.tscn" id="9_jaj7t"]
@@ -87,6 +88,9 @@ script = ExtResource("5_csox7")
 physics_weapon = false
 fireRate = 0.3
 power = 20.0
+
+[node name="AudioWater" type="AudioStreamPlayer" parent="Weapon_Water"]
+stream = ExtResource("8_3bl1f")
 
 [node name="Weapon_Dark" parent="." instance=ExtResource("8_gk67t")]
 power = 10.0
