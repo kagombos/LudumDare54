@@ -42,7 +42,6 @@ func _process(delta):
 	if activeDuration > 0:
 		activeDuration -= delta
 		$ActiveElementSprite/Element_Bar.scale.x = activeDuration/ElementDurations[activeElement]
-		print($ActiveElementSprite/Element_Bar.scale.x)
 	if activeElement != Element.NONE and activeDuration <= 0:
 		activeElement = Element.NONE
 		if weaponsQueue.size():
