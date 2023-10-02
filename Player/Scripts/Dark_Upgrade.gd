@@ -18,7 +18,7 @@ func _process(delta):
 	if bodies.size() > 0:
 		for i in bodies:
 			if statChoice == 0:
-				i.get_node("Weapon_Dar").power *= 1.5
+				i.get_node("Weapon_Dark").power *= 1.5
 			if statChoice == 1:
-				i.get_node("Weapon_Earth").pierce += 0.1
+				i.get_node("Weapon_Dark").pierce += 0.1
 		owner.queue_free()
