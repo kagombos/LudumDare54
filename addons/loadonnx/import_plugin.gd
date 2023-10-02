@@ -35,7 +35,7 @@ func _get_option_visibility(path, option_name, options):
 	return true
 
 func _import(source_file, save_path, options, r_platform_variants, r_gen_files):
-	var file = FileAccess.open(source_file, FileAccess.READ)
+	var file = FileAccess.get_file_as_bytes(source_file)
 	if file == null:
 		return FileAccess.get_open_error()
 	var resource = Resource.new()

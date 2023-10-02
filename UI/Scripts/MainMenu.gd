@@ -4,6 +4,11 @@ func _ready():
 	Input.set_custom_mouse_cursor(preload("res://UI/Sprites/cursor.png"))
 	if not MusicPlayer.get_node("MenuMusic").is_playing():
 		MusicPlayer.get_node("MenuMusic").play()
+	
+	var file = FileAccess.open("user://handwritten_letters.onnx", FileAccess.WRITE)
+	var file2 = FileAccess.get_file_as_bytes("res://handwritten_letters.txt")
+	file.store_buffer(file2)
+	file.close()
 
 func start_game():
 	get_tree().change_scene_to_file("res://arena.tscn")
