@@ -13,3 +13,4 @@ func run_weapon(delta):
 		light_proj.damage = power
 		light_proj.pierce = pierce
 		owner.add_sibling(light_proj)
+		$AudioLight.play()
