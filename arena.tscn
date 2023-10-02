@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
 [ext_resource type="PackedScene" uid="uid://c5k766c46o5rr" path="res://WeaponsQueue/weapons_queue.tscn" id="7_cwm67"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8emuj")
 
 [node name="TileMap" type="TileMap" parent="."]

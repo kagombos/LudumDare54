@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb3abwj6vuhp5"]
+[gd_scene load_steps=15 format=3 uid="uid://cb3abwj6vuhp5"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Water_Upgrade.gd" id="1_8yuud"]
+[ext_resource type="Script" path="res://Player/Scripts/upgrades_parent.gd" id="1_fra5i"]
 [ext_resource type="Texture2D" uid="uid://c7xyf7smqjfhw" path="res://Player/Sprites/powerupBlue.png" id="2_3d7o5"]
 [ext_resource type="Script" path="res://Player/Scripts/Earth_Upgrade.gd" id="3_kvv2p"]
 [ext_resource type="Texture2D" uid="uid://dhqsg5fwyay31" path="res://Player/Sprites/powerupGreen.png" id="4_4asjb"]
@@ -16,6 +17,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3tty"]
 
 [node name="Upgrades_Parent" type="Node2D"]
+script = ExtResource("1_fra5i")
 
 [node name="Water_Upgrade" type="Area2D" parent="."]
 position = Vector2(200, 100)
