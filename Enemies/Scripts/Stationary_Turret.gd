@@ -9,6 +9,7 @@ extends	Area2D
 @export var HP = 20.0
 
 @export var resistChance = 0
+@export var level = 0
 
 @export var ResistanceTypes = {
 	Element.FIRE: 1.0,
@@ -46,6 +47,8 @@ func _ready():
 			ResistanceTypes[Element.LIGHT] = 1
 			$TurretBase.texture = preload("res://Enemies/Sprites/ufoYellow.png")
 			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitYellow_3.png")
+	maxHP = maxHP * (level+1)
+	HP = maxHP
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	turretCD += delta

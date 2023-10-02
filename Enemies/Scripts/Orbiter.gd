@@ -17,6 +17,7 @@ extends RigidBody2D
 @export var HP = 10.0
 
 @export var resistChance = 0
+@export var level = 0
 
 @export var ResistanceTypes = {
 	Element.FIRE: 1.0,
@@ -52,6 +53,8 @@ func _ready():
 		elif weaknessChance == 3:
 			ResistanceTypes[Element.DARK] = 1
 			$Orbiter_Ship.texture = preload("res://Enemies/Sprites/enemyBlack2.png")
+	maxHP = maxHP * (level+1)
+	HP = maxHP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
