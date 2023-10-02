@@ -20,8 +20,11 @@ var rotation_locked
 @export var XP = 0
 var levelThreshold = 60
 
+var end_game = false
+var end_game_timer = 2
 
 func _ready():
+	$DeathParticles.visible = false
 	HP = maxHP
 	last_position = get_global_mouse_position()
 	position = get_global_mouse_position()
@@ -43,43 +46,52 @@ func _input(event):
 			rotation_locked = false
 
 func _physics_process(delta):
-	position = get_global_mouse_position()
-	if position != last_position and not rotation_locked:
-		look_at(last_position)
-	last_position = position
-	$Base_Ship/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
-	
-	# set all to false
-	ElementToScene.values().map(func (weapon): weapon.active = false)
-	
-	if Input.is_action_pressed("Fire_Debug"):
-		$Weapon_Fire.active = true
-	if Input.is_action_pressed("Water_Debug"):
-		$Weapon_Water.active = true
-	if Input.is_action_pressed("Dark_Debug"):
-		$Weapon_Dark.active = true
-	if Input.is_action_pressed("Earth_Debug"):
-		$Weapon_Earth.active = true
-	if Input.is_action_pressed("Light_Debug"):
-		$Weapon_Light.active = true
-	if Input.is_action_pressed("Air_Debug"):
-		$Weapon_Air.active = true
+	if not end_game:
+		position = get_global_mouse_position()
+		if position != last_position and not rotation_locked:
+			look_at(last_position)
+		last_position = position
+		$Base_Ship/Health_Bar_Empty/Health_Bar.scale.x = HP/maxHP
+		
+		# set all to false
+		ElementToScene.values().map(func (weapon): weapon.active = false)
+		
+		if Input.is_action_pressed("Fire_Debug"):
+			$Weapon_Fire.active = true
+		if Input.is_action_pressed("Water_Debug"):
+			$Weapon_Water.active = true
+		if Input.is_action_pressed("Dark_Debug"):
+			$Weapon_Dark.active = true
+		if Input.is_action_pressed("Earth_Debug"):
+			$Weapon_Earth.active = true
+		if Input.is_action_pressed("Light_Debug"):
+			$Weapon_Light.active = true
+		if Input.is_action_pressed("Air_Debug"):
+			$Weapon_Air.active = true
+			HP = 0
 
-	if ElementToScene.has(activeElement):
-		ElementToScene[activeElement].active = true
+		if ElementToScene.has(activeElement):
+			ElementToScene[activeElement].active = true
 
-	if XP >= levelThreshold:
-		XP -= levelThreshold
-		levelThreshold *= 1.1
-		$Upgrade_Spawner.level_up()
-	if HP <= 0:
-		#replace this with game over code
-		get_tree().change_scene_to_file("res://Main Menu.tscn")
+		if XP >= levelThreshold:
+			XP -= levelThreshold
+			levelThreshold *= 1.1
+			$Upgrade_Spawner.level_up()
+		if HP <= 0:
+			$DeathParticles.visible = true
+			$DeathParticles.restart()
+			$Base_Ship.visible = false
+			end_game = true
+			end_game_timer = 2
+			#replace this with game over code
+	else:
+		end_game_timer -= delta
+		if end_game_timer <= 0:
+			get_tree().change_scene_to_file("res://Main Menu.tscn")
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
 	
-
 
 func _on_object_detector_object_detected(detectedValue):
 	if ElementUtils.DigitToElementMap.has(detectedValue):
