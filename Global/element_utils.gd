@@ -21,13 +21,14 @@ var ElementToString = {
 }
 
 var ElementToColor = {
-	Element.FIRE: Color(255, 0, 0),
-	Element.WATER: Color(0, 0, 255),
-	Element.EARTH: Color(0, 255, 0),
+	Element.FIRE: Color(1, 0, 0),
+	Element.WATER: Color(0, 0, 1),
+	Element.EARTH: Color(0, 1, 0),
 	Element.AIR: Color(0.5, 0.5, 0.5),
-	Element.LIGHT: Color(255, 255, 0),
-	Element.DARK: Color(0.2, 0.1, 0.5),
-	Element.JUNK: Color(255, 255, 255)
+	Element.LIGHT: Color(1, 1, 1),
+	Element.DARK: Color(0.3, 0.2, 0.6),
+	Element.JUNK: Color(1, 1, 1),
+	Element.NONE: Color(1, 1, 1, 0)
 }
 
 var ElementToIcon = {

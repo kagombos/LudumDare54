@@ -1,13 +1,13 @@
 extends Node2D
 
 var ElementDurations = {
-	Element.FIRE: 4,
-	Element.EARTH: 4,
-	Element.WATER: 3,
-	Element.LIGHT: 3,
-	Element.DARK: 3,
-	Element.AIR: 4,
-	Element.JUNK: 1
+	Element.FIRE: 4.0,
+	Element.EARTH: 4.0,
+	Element.WATER: 3.0,
+	Element.LIGHT: 3.0,
+	Element.DARK: 3.0,
+	Element.AIR: 4.0,
+	Element.JUNK: 1.0
 }
 
 var activeElement = Element.NONE
@@ -31,21 +31,25 @@ func activateElement():
 	activeElement = pop()
 	activeDuration = ElementDurations[activeElement]
 	element_activated.emit(activeElement)
+	$ActiveElementSprite/Element_Bar.modulate = ElementUtils.ElementToColor[activeElement]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$ActiveElementSprite/Element_Bar.modulate = ElementUtils.ElementToColor[activeElement]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if activeDuration > 0:
 		activeDuration -= delta
+		$ActiveElementSprite/Element_Bar.scale.x = activeDuration/ElementDurations[activeElement]
+		print($ActiveElementSprite/Element_Bar.scale.x)
 	if activeElement != Element.NONE and activeDuration <= 0:
 		activeElement = Element.NONE
 		if weaponsQueue.size():
 			activateElement()
 		else:
 			element_activated.emit(Element.NONE)
+			$ActiveElementSprite/Element_Bar.modulate = ElementUtils.ElementToColor[activeElement]
 
 func _on_object_detector_object_detected(detectedValue):
 	print("signal received: ", detectedValue)
