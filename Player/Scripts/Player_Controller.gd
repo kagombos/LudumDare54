@@ -80,6 +80,8 @@ func _physics_process(delta):
 		if HP <= 0:
 			$DeathParticles.visible = true
 			$DeathParticles.restart()
+			$AudioDeath.pitch_scale = 0.7 + randf_range(-0.2, 0.2)
+			$AudioDeath.play()
 			$Base_Ship.visible = false
 			end_game = true
 			end_game_timer = 2

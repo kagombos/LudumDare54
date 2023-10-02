@@ -73,5 +73,8 @@ func _process(delta):
 		particles.position = position
 		add_sibling(particles)
 		particles.visible = true
+		var audio = particles.get_node("AudioDeath")
+		audio.pitch_scale = 0.8 + randf_range(-0.2, 0.2)
+		audio.play()
 		particles.restart()
 		queue_free()
