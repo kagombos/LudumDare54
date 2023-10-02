@@ -37,4 +37,5 @@ var ElementToIcon = {
 	Element.AIR: Image.load_from_file("res://UI/Sprites/Air_Icon.png"),
 	Element.LIGHT: Image.load_from_file("res://UI/Sprites/Light_Icon.png"),
 	Element.DARK: Image.load_from_file("res://UI/Sprites/Dark_Icon.png"),
+	Element.JUNK: Image.load_from_file("res://UI/Sprites/Junk_Icon.png"),
 }
