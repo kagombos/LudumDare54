@@ -16,12 +16,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var bodies = get_overlapping_bodies()
-	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
+	bodies = bodies.filter(func(body): return body.get_groups().has("Player"))
 	if bodies.size() > 0:
-		if statChoice == 0:
-			bodies[0].get_node("Weapon_Earth").power *= 1.5
-		if statChoice == 1:
-			bodies[0].get_node("Weapon_Earth").pierce += 0.1
-		if statChoice == 2:
-			bodies[0].get_node("Weapon_Earth").fireRate *= 0.85
+		for i in bodies:
+			if statChoice == 0:
+				i.get_node("Weapon_Earth").power *= 1.5
+			if statChoice == 1:
+				i.get_node("Weapon_Earth").pierce += 0.1
+			if statChoice == 2:
+				i.get_node("Weapon_Earth").fireRate *= 0.85
 		owner.queue_free()
