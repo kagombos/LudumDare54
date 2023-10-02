@@ -191,46 +191,19 @@ step = 1
 [node name="TutorialWindow3" parent="TutorialController" instance=ExtResource("15_khrci")]
 z_index = 6
 position = Vector2(1379, 443)
-text = "Hold left click to start drawing a trail. If you draw a capital letter that matches up to one of these symbols, you'll add that element to the spell queue. Try drawing one now!"
+text = "Hold left click to start drawing a trail. If you draw a letter that matches up to one of these symbols, you'll add that element to the spell queue. Try drawing one now!"
 step = 2
 showContinue = false
 
 [node name="TutorialWindow4" parent="TutorialController" instance=ExtResource("15_khrci")]
 z_index = 6
-position = Vector2(63, 123)
+position = Vector2(1379, 443)
 text = "Success! When channelled, the element goes into your spell queue here. You can have up to 5 elements in your spell queue plus the currently active element."
 step = 3
-
-[node name="TutorialWindow5" parent="TutorialController" instance=ExtResource("15_khrci")]
-z_index = 6
-position = Vector2(53, 769)
-text = "Each element has a different ability. Use your new knowledge to defeat this enemy! Tip: You can lock your ships rotation by holding right click."
-step = 4
-showContinue = false
-
-[node name="TutorialWindow6" parent="TutorialController" instance=ExtResource("15_khrci")]
-z_index = 6
-position = Vector2(704, 766)
-text = "Success! As you kill enemies, you will gain access to upgrades that will strengthen an individual element. The upgrade will increase the power, the firerate, or the resistance pierce of the element. Choose wisely, as you will only get to take one. Pick up one of these upgrades!"
-step = 5
-showContinue = false
-
-[node name="TutorialWindow7" parent="TutorialController" instance=ExtResource("15_khrci")]
-z_index = 6
-position = Vector2(704, 766)
-text = "As you defeat more enemies, resistant enemies will start spawning. These enemies are resistant to all but one element, which is decided by its color. Here is an enemy that has some resistance. Take it down!"
-step = 6
-showContinue = false
-
-[node name="TutorialWindow8" parent="TutorialController" instance=ExtResource("15_khrci")]
-z_index = 6
-position = Vector2(704, 412)
-text = "Success! This concludes the tutorial. Good luck in the arena!"
-step = 7
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="TrailControlLeft" method="_on_object_detector_object_detected"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="WeaponsQueue" method="_on_object_detector_object_detected"]
 [connection signal="element_activated" from="WeaponsQueue" to="Player" method="_on_weapons_queue_element_activated"]
-[connection signal="element_activated" from="WeaponsQueue" to="TutorialController" method="_on_draw_element"]
+[connection signal="element_activated" from="WeaponsQueue" to="TutorialController/TutorialWindow3" method="_on_button_up"]

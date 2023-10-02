@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://ker160qp412q"]
+[gd_scene load_steps=3 format=3 uid="uid://ker160qp412q"]
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 300.0
-offset_bottom = 200.0
+[ext_resource type="Script" path="res://Tutorial/TutorialWindow.gd" id="1_1jk6s"]
+[ext_resource type="Script" path="res://Tutorial/ContinueButton.gd" id="2_sc7pj"]
+
+[node name="Control" type="Node2D"]
+script = ExtResource("1_1jk6s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
 offset_right = 512.0
 offset_bottom = 256.0
+pivot_offset = Vector2(256, 128)
 color = Color(0.2, 0.2, 0.2, 1)
 
 [node name="ColorRect" type="ColorRect" parent="ColorRect"]
@@ -20,30 +20,23 @@ offset_right = 504.0
 offset_bottom = 248.0
 color = Color(0, 0, 0, 1)
 
-[node name="TextureButton" type="TextureButton" parent="ColorRect/ColorRect"]
+[node name="Button" type="Button" parent="ColorRect/ColorRect"]
+layout_mode = 0
 offset_left = 152.0
 offset_top = 152.0
 offset_right = 344.0
 offset_bottom = 208.0
-
-[node name="ColorRect" type="ColorRect" parent="ColorRect/ColorRect/TextureButton"]
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 56.0
-color = Color(0.2, 0.2, 0.2, 1)
-
-[node name="Label" type="Label" parent="ColorRect/ColorRect/TextureButton/ColorRect"]
-layout_mode = 0
-offset_right = 192.0
-offset_bottom = 56.0
 text = "Continue"
-horizontal_alignment = 1
-vertical_alignment = 1
+script = ExtResource("2_sc7pj")
 
 [node name="Label" type="Label" parent="ColorRect/ColorRect"]
 layout_mode = 0
-offset_right = 496.0
+offset_left = 16.0
+offset_right = 480.0
 offset_bottom = 120.0
-text = "Welcome to the cosmic caster tutorial!"
+text = "Text goes here"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="button_up" from="ColorRect/ColorRect/Button" to="." method="_on_button_up"]
