@@ -1,10 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://ckpjin3t8hxcc"]
+[gd_scene load_steps=19 format=3 uid="uid://ckpjin3t8hxcc"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_7n0wl"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_q5b2a"]
-[ext_resource type="PackedScene" uid="uid://bwrjs83xj744j" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_o4buw"]
-[ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="4_386er"]
-[ext_resource type="AudioStream" uid="uid://boedayv0roclx" path="res://Audio/enemy_spawn.wav" id="5_6f65d"]
 [ext_resource type="Script" path="res://TrailControl.gd" id="6_23obe"]
 [ext_resource type="Script" path="res://ObjectDetector.cs" id="7_ucvyh"]
 [ext_resource type="Script" path="res://DebugDisplay.gd" id="8_nh4am"]
@@ -53,14 +50,6 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="Player" parent="." instance=ExtResource("2_q5b2a")]
-
-[node name="Enemy Spawner" parent="." instance=ExtResource("3_o4buw")]
-enemy_prefab = ExtResource("4_386er")
-waveRate = 7.0
-waveGrowth = 1
-
-[node name="SpawnSound" type="AudioStreamPlayer" parent="Enemy Spawner"]
-stream = ExtResource("5_6f65d")
 
 [node name="TrailControlLeft" type="Node2D" parent="."]
 z_index = -2
