@@ -16,10 +16,10 @@ offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="StartGame" type="Button" parent="."]
-offset_left = 200.0
-offset_top = 200.0
-offset_right = 430.0
-offset_bottom = 247.0
+offset_left = 110.0
+offset_top = 150.0
+offset_right = 340.0
+offset_bottom = 197.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
@@ -29,10 +29,10 @@ icon = ExtResource("2_06q5w")
 icon_alignment = 1
 
 [node name="HowToPlay" type="Button" parent="."]
-offset_left = 200.0
-offset_top = 400.0
-offset_right = 430.0
-offset_bottom = 447.0
+offset_left = 110.0
+offset_top = 350.0
+offset_right = 340.0
+offset_bottom = 397.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
@@ -41,11 +41,24 @@ text = "How to Play"
 icon = ExtResource("2_06q5w")
 icon_alignment = 1
 
+[node name="Tutorial" type="Button" parent="."]
+offset_left = 110.0
+offset_top = 350.0
+offset_right = 340.0
+offset_bottom = 397.0
+scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
+theme_override_colors/icon_hover_color = Color(0, 0.87451, 0.917647, 0.717647)
+text = "Tutorial"
+icon = ExtResource("2_06q5w")
+icon_alignment = 1
+
 [node name="Practice" type="Button" parent="."]
-offset_left = 200.0
-offset_top = 600.0
-offset_right = 430.0
-offset_bottom = 647.0
+offset_left = 110.0
+offset_top = 650.0
+offset_right = 340.0
+offset_bottom = 697.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
@@ -55,10 +68,10 @@ icon = ExtResource("2_06q5w")
 icon_alignment = 1
 
 [node name="Exit" type="Button" parent="."]
-offset_left = 200.0
-offset_top = 800.0
-offset_right = 430.0
-offset_bottom = 847.0
+offset_left = 110.0
+offset_top = 850.0
+offset_right = 340.0
+offset_bottom = 897.0
 scale = Vector2(2, 2)
 theme_override_colors/font_color = Color(0.439216, 1, 0, 1)
 theme_override_colors/icon_pressed_color = Color(0, 0.215686, 0, 0.835294)
