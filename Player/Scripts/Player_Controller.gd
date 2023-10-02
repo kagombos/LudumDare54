@@ -74,3 +74,8 @@ func _physics_process(delta):
 
 func _on_weapons_queue_element_activated(element):
 	activeElement = element
+
+
+func _on_object_detector_object_detected(detectedValue):
+	if ElementUtils.DigitToElementMap.has(detectedValue):
+		$DrawSuccess.restart()
