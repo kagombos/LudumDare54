@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpheb3kffoaqw"]
+
+[ext_resource type="Texture2D" uid="uid://c0suqhes8bbhl" path="res://Drawing/Sprites/star_small.png" id="1_atgl5"]
+[ext_resource type="Script" path="res://Drawing/Scripts/constellation_point.gd" id="2_5x5ni"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_atgl5")
+script = ExtResource("2_5x5ni")

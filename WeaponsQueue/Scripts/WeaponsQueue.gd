@@ -9,17 +9,6 @@ var DigitToElementMap = {
 	25: Element.AIR, #Z
 }
 
-var ElementToString = {
-	Element.FIRE: "Fire",
-	Element.WATER: "Water",
-	Element.LIGHT: "Light",
-	Element.DARK: "Dark",
-	Element.AIR: "Air",
-	Element.EARTH: "Earth",
-	Element.JUNK: "Junk",
-	Element.NONE: "None",
-}
-
 var ElementDurations = {
 	Element.FIRE: 4,
 	Element.EARTH: 4,
