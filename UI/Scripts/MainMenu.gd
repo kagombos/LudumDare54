@@ -9,7 +9,7 @@ func start_game():
 	
 	
 func how_play():
-	pass
+	get_tree().change_scene_to_file("res://How_To_Play.tscn")
 
 func practice():
 	get_tree().change_scene_to_file("res://arenaPractice.tscn")

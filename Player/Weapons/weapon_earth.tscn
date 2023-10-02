@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1r4vn2w8o3jc"]
+
+[ext_resource type="Script" path="res://Player/Weapons/Scripts/Weapon_Earth.gd" id="1_1o6ct"]
+[ext_resource type="AudioStream" uid="uid://cghv813gugq1m" path="res://Audio/earth_weapon_activate.wav" id="2_ovtdi"]
+
+[node name="Weapon_Earth" type="Node2D"]
+script = ExtResource("1_1o6ct")
+physics_weapon = false
+fireRate = 2.0
+power = 4.0
+
+[node name="Earth_Spawn" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ovtdi")

@@ -13,6 +13,7 @@ func run_weapon(delta):
 	earthCD += delta
 	if earthCD > fireRate:
 		earthCD -= fireRate
+		$Earth_Spawn.play()
 		for i in range(5):
 			var earth_proj = earth_proj_prefab.instantiate()
 			earth_proj.rotation_degrees = rotation_degrees + 72*i

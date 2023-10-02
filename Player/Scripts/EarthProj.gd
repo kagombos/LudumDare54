@@ -16,7 +16,7 @@ func _ready():
 	var timer = Timer.new()
 	self.add_child(timer)
 	
-	timer.connect("timeout", Callable(self, "queue_free"))
+	timer.connect("timeout", Callable(self, "despawn"))
 	timer.set_wait_time(2.5)
 	timer.start()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,9 +33,19 @@ func _physics_process(delta):
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && scale.x > 0.01:
 		bodies[0].HP -= damage*(bodies[0].ResistanceTypes[Element.EARTH]+pierce)
-		queue_free()
+		despawn()
 	var areas = get_overlapping_areas()
 	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
 	if areas && scale.x > 0.01:
 		areas[0].HP -= damage*(areas[0].ResistanceTypes[Element.EARTH]+pierce)
+		despawn()
+		
+func despawn():
+	var particles = $DeathParticles
+	if particles != null:
+		remove_child(particles)
+		particles.position = position
+		add_sibling(particles)
+		particles.visible = true
+		particles.restart()
 		queue_free()

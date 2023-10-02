@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=22 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
@@ -19,6 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="17_lxc25"]
 [ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="18_67mve"]
 
+[sub_resource type="Gradient" id="Gradient_tkdir"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.721569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3eaj"]
+gradient = SubResource("Gradient_tkdir")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lm0lg"]
 emission_shape = 3
 emission_box_extents = Vector3(960, 540, 0)
@@ -32,6 +38,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.5
 scale_max = 0.75
+color_ramp = SubResource("GradientTexture1D_r3eaj")
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8emuj")
@@ -48,6 +55,9 @@ color = Color(0, 0, 0, 1)
 [node name="Player" parent="." instance=ExtResource("2_cyqrb")]
 
 [node name="Enemy Spawner" parent="." instance=ExtResource("3_hycri")]
+enemy_prefab = ExtResource("6_yl35p")
+waveRate = 7.0
+waveGrowth = 1
 
 [node name="SpawnSound" type="AudioStreamPlayer" parent="Enemy Spawner"]
 stream = ExtResource("4_kkrmn")
@@ -161,13 +171,6 @@ offset_top = 300.0
 offset_right = 54.0
 offset_bottom = 327.0
 text = "Detected Letter: None"
-
-[node name="Enemy Spawner2" parent="." instance=ExtResource("3_hycri")]
-enemy_prefab = ExtResource("6_yl35p")
-enemyDelay = 2
-
-[node name="SpawnSound" type="AudioStreamPlayer" parent="Enemy Spawner2"]
-stream = ExtResource("4_kkrmn")
 
 [node name="WeaponsQueue" parent="." instance=ExtResource("7_cwm67")]
 

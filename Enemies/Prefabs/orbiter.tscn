@@ -12,7 +12,7 @@
 [sub_resource type="Gradient" id="Gradient_h1bhe"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_2fj64"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_o3k3a"]
 gradient = SubResource("Gradient_h1bhe")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6iymn"]
@@ -25,7 +25,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 damping_min = 0.7
 damping_max = 0.9
-color_ramp = SubResource("GradientTexture1D_2fj64")
+color_ramp = SubResource("GradientTexture1D_o3k3a")
 
 [node name="Orbiter" type="RigidBody2D" groups=["Enemy"]]
 position = Vector2(480, 360)
