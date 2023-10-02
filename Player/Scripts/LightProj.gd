@@ -38,6 +38,7 @@ func _physics_process(delta):
 	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
 	if bodies && scale.x > 0.01:
 		bodies[0].HP -= damage*(bodies[0].ResistanceTypes[Element.LIGHT]+pierce)
+		bodies[0].play_collision()
 		var particles = $GPUParticles2D
 		if particles:
 			remove_child(particles)
@@ -49,6 +50,7 @@ func _physics_process(delta):
 	areas = areas.filter(func(area): return area.get_groups().has("Enemy"))
 	if areas && scale.x > 0.01:
 		areas[0].HP -= damage*(areas[0].ResistanceTypes[Element.LIGHT]+pierce)
+		areas[0].play_collision()
 		var particles = $GPUParticles2D
 		if particles:
 			remove_child(particles)

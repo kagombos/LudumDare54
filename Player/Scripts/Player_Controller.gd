@@ -77,6 +77,11 @@ func _physics_process(delta):
 			XP -= levelThreshold
 			levelThreshold *= 1.1
 			$Upgrade_Spawner.level_up()
+		if activeElement == Element.DARK:
+			if HP < darkHP:
+				HP = darkHP
+			else:
+				darkHP = HP
 		if HP <= 0:
 			$DeathParticles.visible = true
 			$DeathParticles.restart()

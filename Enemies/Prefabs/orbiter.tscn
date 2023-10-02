@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjivdjvi5qk2i"]
+[gd_scene load_steps=12 format=3 uid="uid://cjivdjvi5qk2i"]
 
 [ext_resource type="Script" path="res://Enemies/Scripts/Orbiter.gd" id="1_mdcjb"]
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="2_lhjtc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://csppl4rttdrnp" path="res://Enemies/Sprites/Orbiter_HP_Indicator.png" id="4_3l0g1"]
 [ext_resource type="Texture2D" uid="uid://dq7pdtxkk2vir" path="res://Player/Sprites/star_medium.png" id="5_v6f1y"]
 [ext_resource type="AudioStream" uid="uid://c65n2ird1g2x0" path="res://Audio/ship_death.wav" id="6_myxyi"]
+[ext_resource type="AudioStream" uid="uid://dcfwivym3b0al" path="res://Audio/collision.wav" id="7_prsty"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_seikd"]
 
@@ -66,5 +67,8 @@ explosiveness = 1.0
 
 [node name="AudioDeath" type="AudioStreamPlayer" parent="DeathParticles"]
 stream = ExtResource("6_myxyi")
+
+[node name="AudioCollision" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_prsty")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

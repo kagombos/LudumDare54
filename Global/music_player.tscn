@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dmwh3wqeefa2d"]
+[gd_scene load_steps=3 format=3 uid="uid://cywcn0fniybd7"]
 
 [ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="1_srtpj"]
 [ext_resource type="AudioStream" uid="uid://bjlnprmnx10l0" path="res://Audio/menu_theme.ogg" id="2_vxk2o"]

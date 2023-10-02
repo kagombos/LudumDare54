@@ -8,6 +8,7 @@ func _ready():
 func start_weapon():
 	$DarkCollision/DarkShield.play("default")
 	$DarkCollision.scale = Vector2.ONE
+	owner.darkHP = owner.HP
 	$AudioShield.play()
 	
 func stop_weapon():

@@ -78,3 +78,7 @@ func _process(delta):
 		audio.play()
 		particles.restart()
 		queue_free()
+		
+		
+func play_collision():
+	$AudioCollision.play()
