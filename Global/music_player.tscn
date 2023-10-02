@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://cywcn0fniybd7"]
+[gd_scene load_steps=3 format=3 uid="uid://dmwh3wqeefa2d"]
 
 [ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="1_srtpj"]
 [ext_resource type="AudioStream" uid="uid://bjlnprmnx10l0" path="res://Audio/menu_theme.ogg" id="2_vxk2o"]
 
 [node name="MusicPlayer" type="Node"]
+process_mode = 3
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_srtpj")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=24 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="13_qnyhq"]
 [ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="18_67mve"]
 [ext_resource type="Script" path="res://Player/Scripts/Score.gd" id="18_eofw4"]
+[ext_resource type="PackedScene" uid="uid://bdiw610fwdhd1" path="res://UI/pause_controller.tscn" id="19_1kkdc"]
 
 [sub_resource type="Gradient" id="Gradient_tkdir"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.721569)
@@ -196,6 +197,8 @@ text = "0"
 autowrap_mode = 0
 text_direction = 2
 script = ExtResource("18_eofw4")
+
+[node name="PauseController" parent="." instance=ExtResource("19_1kkdc")]
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
