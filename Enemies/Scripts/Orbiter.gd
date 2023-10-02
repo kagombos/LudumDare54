@@ -89,6 +89,9 @@ func _physics_process(delta):
 		add_sibling(particles)
 		particles.visible = true
 		particles.restart()
+		var audio = particles.get_node("AudioDeath")
+		audio.pitch_scale += randf_range(-0.2, 0.2)
+		audio.play()
 		queue_free()
 		
 

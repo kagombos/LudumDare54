@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=18 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bvq20744mjdcu" path="res://UI/Sprites/Light_Icon.png" id="11_lexme"]
 [ext_resource type="Texture2D" uid="uid://bx54jmvvx66sc" path="res://UI/Sprites/Water_Icon.png" id="12_5kdqf"]
 [ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="13_qnyhq"]
+[ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="17_lxc25"]
 
 [node name="Node2D2" type="Node2D"]
 script = ExtResource("1_8emuj")
@@ -154,6 +155,11 @@ enemyDelay = 2
 stream = ExtResource("4_kkrmn")
 
 [node name="WeaponsQueue" parent="." instance=ExtResource("7_cwm67")]
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_lxc25")
+volume_db = -15.0
+autoplay = true
 
 [connection signal="LineDrawn" from="TrailControlLeft" to="TrailControlLeft/ObjectDetector" method="_on_trail_control_left_line_drawn"]
 [connection signal="ObjectDetected" from="TrailControlLeft/ObjectDetector" to="Player" method="_on_object_detector_object_detected"]
