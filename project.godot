@@ -33,6 +33,10 @@ window/stretch/mode="viewport"
 
 project/assembly_name="Ludum Dare 54"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/loadonnx/plugin.cfg")
+
 [input]
 
 Fire_Debug={

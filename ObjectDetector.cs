@@ -137,7 +137,7 @@ public partial class ObjectDetector : Node
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		var modelPath = ProjectSettings.GlobalizePath("res://handwritten_letters.onnx");
+		var modelPath = "res://handwritten_letters.onnx";
 		var outputColumnNames = new[] { "dense_3" };
 		var inputColumnNames = new[] { "conv2d_1_input" };
 		mlContext = new MLContext();

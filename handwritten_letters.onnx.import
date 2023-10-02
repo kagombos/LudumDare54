@@ -1,0 +1,14 @@
+[remap]
+
+importer="demos.onnx"
+type="Resource"
+uid="uid://cxrowj1ssqrl0"
+path="res://.godot/imported/handwritten_letters.onnx-11c69661a380865230e5e3c8268f530e.res"
+
+[deps]
+
+source_file="res://handwritten_letters.onnx"
+dest_files=["res://.godot/imported/handwritten_letters.onnx-11c69661a380865230e5e3c8268f530e.res"]
+
+[params]
+
