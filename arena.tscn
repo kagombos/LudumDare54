@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://v2rbp1er7bs4"]
+[gd_scene load_steps=9 format=3 uid="uid://v2rbp1er7bs4"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_8emuj"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_cyqrb"]
 [ext_resource type="PackedScene" uid="uid://bwrjs83xj744j" path="res://Enemies/Prefabs/enemy_spawner.tscn" id="3_hycri"]
 [ext_resource type="Script" path="res://TrailControl.gd" id="4_uhvwm"]
 [ext_resource type="Script" path="res://ObjectDetector.cs" id="5_evcg2"]
+[ext_resource type="Script" path="res://DebugDisplay.gd" id="6_ftguj"]
 [ext_resource type="PackedScene" uid="uid://bbtjlt5bk1rwp" path="res://Enemies/Prefabs/turret_stationary.tscn" id="6_yl35p"]
 [ext_resource type="PackedScene" uid="uid://c5k766c46o5rr" path="res://WeaponsQueue/weapons_queue.tscn" id="7_cwm67"]
 
@@ -34,6 +35,7 @@ script = ExtResource("5_evcg2")
 
 [node name="DebugDisplay" type="Node2D" parent="TrailControlLeft/ObjectDetector"]
 position = Vector2(1833, 106)
+script = ExtResource("6_ftguj")
 
 [node name="DebugText" type="RichTextLabel" parent="TrailControlLeft/ObjectDetector"]
 offset_left = 1718.0
