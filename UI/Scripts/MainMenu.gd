@@ -1,6 +1,5 @@
 extends Node2D
 
-
 func _ready():
 	Input.set_custom_mouse_cursor(preload("res://UI/Sprites/cursor.png"))
 	if not MusicPlayer.get_node("MenuMusic").is_playing():
@@ -9,6 +8,7 @@ func _ready():
 func start_game():
 	get_tree().change_scene_to_file("res://arena.tscn")
 	MusicPlayer.get_node("GameMusic").play()
+	MusicPlayer.get_node("MenuMusic").stop()
 	
 	
 func how_play():
@@ -17,6 +17,7 @@ func how_play():
 func practice():
 	get_tree().change_scene_to_file("res://arenaPractice.tscn")
 	MusicPlayer.get_node("GameMusic").play()
+	MusicPlayer.get_node("MenuMusic").stop()
 
 func quit():
 	get_tree().quit()
