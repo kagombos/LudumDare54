@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://ckpjin3t8hxcc"]
+[gd_scene load_steps=18 format=3 uid="uid://ckpjin3t8hxcc"]
 
 [ext_resource type="Script" path="res://SetCursor.gd" id="1_7n0wl"]
 [ext_resource type="PackedScene" uid="uid://de32w2gha1wwq" path="res://Player/player.tscn" id="2_q5b2a"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://bx54jmvvx66sc" path="res://UI/Sprites/Water_Icon.png" id="14_0df55"]
 [ext_resource type="Texture2D" uid="uid://cnwdslfhswxqc" path="res://UI/Sprites/Junk_Icon.png" id="15_vfqih"]
 [ext_resource type="PackedScene" uid="uid://c5k766c46o5rr" path="res://WeaponsQueue/weapons_queue.tscn" id="16_2nxvf"]
-[ext_resource type="AudioStream" uid="uid://br8tweuphp2wk" path="res://Audio/LDPT.ogg" id="17_x4bpa"]
 [ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="18_q6lsc"]
 
 [sub_resource type="Gradient" id="Gradient_tkdir"]
@@ -162,11 +161,6 @@ offset_bottom = 327.0
 text = "Detected Letter: None"
 
 [node name="WeaponsQueue" parent="." instance=ExtResource("16_2nxvf")]
-
-[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_x4bpa")
-volume_db = -15.0
-autoplay = true
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 z_index = -10
