@@ -26,6 +26,7 @@ func _ready():
 	timer.connect("timeout", Callable(self, "winding_down"))
 	timer.set_wait_time(8)
 	timer.start()
+	$AudioAir.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

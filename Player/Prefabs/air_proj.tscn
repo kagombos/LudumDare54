@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfmw22qvcvg8b"]
+[gd_scene load_steps=5 format=3 uid="uid://bfmw22qvcvg8b"]
 
 [ext_resource type="Script" path="res://Player/Scripts/Air_Proj.gd" id="1_msvdg"]
 [ext_resource type="Texture2D" uid="uid://c4j7bfgkgflro" path="res://Player/Sprites/tornado.png" id="2_crqo4"]
+[ext_resource type="AudioStream" uid="uid://dq2v7ig0l0tqa" path="res://Audio/air_weapon.wav" id="3_beq2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xo50b"]
 
@@ -16,3 +17,6 @@ texture = ExtResource("2_crqo4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(20, 20)
 shape = SubResource("CircleShape2D_xo50b")
+
+[node name="AudioAir" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_beq2m")
