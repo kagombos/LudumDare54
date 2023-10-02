@@ -4,6 +4,13 @@ extends WeaponBaseClass
 var particleCD = fireRate
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func start_weapon():
+	$AudioWater.play()
+
+func stop_weapon():
+	$AudioWater.stop()
+
 func run_weapon(delta):
 	if owner.HP < owner.maxHP:
 		particleCD+=delta
