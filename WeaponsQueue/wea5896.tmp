@@ -7,10 +7,13 @@
 [node name="WeaponsQueue" type="Node2D"]
 script = ExtResource("1_vp4ow")
 
-[node name="ElementQueueSprite" type="Node2D" parent="."]
+[node name="ElementQueueValue" type="RichTextLabel" parent="."]
+offset_left = 294.0
+offset_top = 106.0
+offset_right = 582.0
+offset_bottom = 144.0
 script = ExtResource("3_3x1r4")
 
 [node name="ActiveElementSprite" type="Sprite2D" parent="."]
-position = Vector2(50, 50)
-scale = Vector2(0.5, 0.5)
+position = Vector2(25, 25)
 script = ExtResource("2_vosqw")

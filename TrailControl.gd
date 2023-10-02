@@ -19,7 +19,7 @@ var drawing = false
 var line
 var stars = []
 var fadingLines = []
-var nextColor
+var nextColor = Color(1, 1, 1)
 
 var star_prefab = preload("res://Drawing/constellation_point.tscn")
 
@@ -57,9 +57,9 @@ func _input(event):
 			stars.push_back(add_star(event.position))
 		else:
 			# end drawing, create path
-			LineDrawn.emit(line.points)
+			if line.points.size() >= 2:
+				LineDrawn.emit(line.points)
 			fadingLines.append(FadingLine.new(line.duplicate(), stars, nextColor))
-			print(fadingLines.back().color)
 			line.clear_points()
 			stars = []
 			self.queue_redraw()

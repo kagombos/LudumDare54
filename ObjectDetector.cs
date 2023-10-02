@@ -120,13 +120,16 @@ public partial class ObjectDetector : Node
 		ImageTexture.CreateFromImage(image);
 
 		var node = GetNode<Node2D>("DebugDisplay");
-		var newSprite = new Sprite2D();
+		var newSprite = new Sprite2D
+		{
+			Scale = new Vector2(2, 2)
+		};
 		node.AddChild(newSprite);
 		newSprite.Texture = ImageTexture.CreateFromImage(image);
 
 		int prediction = predictCharacter(byteArray);
 
-		var text = GetNode<RichTextLabel>("DebugText");
+		var text = node.GetNode<RichTextLabel>("DebugText");
 		text.Text = "Detected Letter: " + ((char) (65 + prediction));
 		EmitSignal("ObjectDetected", prediction);
 	}

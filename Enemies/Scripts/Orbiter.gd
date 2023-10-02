@@ -53,7 +53,7 @@ func _ready():
 		elif weaknessChance == 3:
 			ResistanceTypes[Element.DARK] = 1
 			$Orbiter_Ship.texture = preload("res://Enemies/Sprites/enemyBlack2.png")
-	maxHP = maxHP * (level+1)
+	maxHP = maxHP * ((level)*0.2+1)
 	HP = maxHP
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -83,6 +83,12 @@ func _physics_process(delta):
 		get_tree().get_nodes_in_group("Player")[0].XP += 10
 		if ResistanceTypes[Element.JUNK] == 0:
 			get_tree().get_nodes_in_group("Player")[0].XP += 20
+		var particles = $DeathParticles
+		remove_child(particles)
+		particles.position = position
+		add_sibling(particles)
+		particles.visible = true
+		particles.restart()
 		queue_free()
 		
 

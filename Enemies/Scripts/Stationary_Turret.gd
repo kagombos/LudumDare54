@@ -47,7 +47,7 @@ func _ready():
 			ResistanceTypes[Element.LIGHT] = 1
 			$TurretBase.texture = preload("res://Enemies/Sprites/ufoYellow.png")
 			$TurretBase/TurretAim.texture = preload("res://Enemies/Sprites/cockpitYellow_3.png")
-	maxHP = maxHP * (level+1)
+	maxHP = maxHP * ((level)*0.2+1)
 	HP = maxHP
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -68,4 +68,10 @@ func _process(delta):
 		get_tree().get_nodes_in_group("Player")[0].XP += 10
 		if ResistanceTypes[Element.JUNK] == 0:
 			get_tree().get_nodes_in_group("Player")[0].XP += 20
+		var particles = $DeathParticles
+		remove_child(particles)
+		particles.position = position
+		add_sibling(particles)
+		particles.visible = true
+		particles.restart()
 		queue_free()
