@@ -11,6 +11,8 @@ var darkHP = 500.0
 var last_position
 var rotation_locked
 
+var debug = false
+
 @export var maxHP = 500.0
 @export var HP = 500.0
 
@@ -55,19 +57,20 @@ func _physics_process(delta):
 		# set all to false
 		ElementToScene.values().map(func (weapon): weapon.active = false)
 		
-		if Input.is_action_pressed("Fire_Debug"):
-			$Weapon_Fire.active = true
-		if Input.is_action_pressed("Water_Debug"):
-			$Weapon_Water.active = true
-		if Input.is_action_pressed("Dark_Debug"):
-			$Weapon_Dark.active = true
-		if Input.is_action_pressed("Earth_Debug"):
-			$Weapon_Earth.active = true
-		if Input.is_action_pressed("Light_Debug"):
-			$Weapon_Light.active = true
-		if Input.is_action_pressed("Air_Debug"):
-			$Weapon_Air.active = true
-			HP = 0
+		if debug:
+			if Input.is_action_pressed("Fire_Debug"):
+				$Weapon_Fire.active = true
+			if Input.is_action_pressed("Water_Debug"):
+				$Weapon_Water.active = true
+			if Input.is_action_pressed("Dark_Debug"):
+				$Weapon_Dark.active = true
+			if Input.is_action_pressed("Earth_Debug"):
+				$Weapon_Earth.active = true
+			if Input.is_action_pressed("Light_Debug"):
+				$Weapon_Light.active = true
+			if Input.is_action_pressed("Air_Debug"):
+				$Weapon_Air.active = true
+				HP = 0
 
 		if ElementToScene.has(activeElement):
 			ElementToScene[activeElement].active = true
