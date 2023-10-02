@@ -12,7 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var bodies = get_overlapping_bodies()
-	bodies = bodies.filter(func(body): return body.get_groups().has("Enemy"))
+	bodies = bodies.filter(func(body): return body.get_groups().has("Player"))
 	if bodies.size() > 0:
 		for i in bodies:
 			if statChoice == 0:
