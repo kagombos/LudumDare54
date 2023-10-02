@@ -23,7 +23,7 @@
 [sub_resource type="Gradient" id="Gradient_tkdir"]
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.721569)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3eaj"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_c41kd"]
 gradient = SubResource("Gradient_tkdir")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lm0lg"]
@@ -39,7 +39,7 @@ orbit_velocity_min = 0.0
 orbit_velocity_max = 0.0
 scale_min = 0.5
 scale_max = 0.75
-color_ramp = SubResource("GradientTexture1D_r3eaj")
+color_ramp = SubResource("GradientTexture1D_c41kd")
 
 [sub_resource type="Theme" id="Theme_6fv6k"]
 default_font_size = 64

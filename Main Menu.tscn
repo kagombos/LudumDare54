@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dargq3wge1sst"]
+[gd_scene load_steps=12 format=3 uid="uid://dargq3wge1sst"]
 
 [ext_resource type="Script" path="res://UI/Scripts/MainMenu.gd" id="1_uhxdy"]
 [ext_resource type="Texture2D" uid="uid://cg4oaxtdjqabc" path="res://UI/Sprites/buttonGreen.png" id="2_06q5w"]
@@ -6,9 +6,31 @@
 [ext_resource type="Texture2D" uid="uid://j85sqo3rhrui" path="res://Enemies/Sprites/enemyBlue2.png" id="4_xeaw3"]
 [ext_resource type="Texture2D" uid="uid://cuq16c21v1lqe" path="res://UI/Sprites/TitleSplash.png" id="5_44trp"]
 [ext_resource type="Script" path="res://UI/Scripts/HighScore.gd" id="6_o5d06"]
+[ext_resource type="Texture2D" uid="uid://d001uconas44t" path="res://UI/Sprites/star_small.png" id="7_1t4uu"]
 
 [sub_resource type="Theme" id="Theme_8h7b7"]
 default_font_size = 32
+
+[sub_resource type="Gradient" id="Gradient_npx4h"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.721569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_r3eaj"]
+gradient = SubResource("Gradient_npx4h")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kdh20"]
+emission_shape = 3
+emission_box_extents = Vector3(960, 540, 0)
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 0.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.5
+scale_max = 0.75
+color_ramp = SubResource("GradientTexture1D_r3eaj")
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_uhxdy")
@@ -115,6 +137,15 @@ offset_right = 544.0
 offset_bottom = 328.0
 theme = SubResource("Theme_8h7b7")
 script = ExtResource("6_o5d06")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = -10
+position = Vector2(1160, 540)
+amount = 240
+process_material = SubResource("ParticleProcessMaterial_kdh20")
+texture = ExtResource("7_1t4uu")
+lifetime = 120.0
+preprocess = 120.0
 
 [connection signal="button_up" from="StartGame" to="." method="start_game"]
 [connection signal="button_up" from="HowToPlay" to="." method="how_play"]
