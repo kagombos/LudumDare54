@@ -19,6 +19,6 @@ func _process(delta):
 	for n in range(owner.maxQueueSize):
 		if n < owner.weaponsQueue.size():
 			sprites[n].visible = true
-			sprites[n].texture = ImageTexture.create_from_image(ElementUtils.ElementToIcon[owner.weaponsQueue[n]])
+			sprites[n].texture = ElementUtils.ElementToIcon[owner.weaponsQueue[n]]
 		else:
 			sprites[n].visible = false
